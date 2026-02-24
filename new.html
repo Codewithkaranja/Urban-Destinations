@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Njeru Tours & Travels | Premium Tours</title>
+
+  <!-- Font (Jost) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <style>
+    :root{
+      --jungle: #0b4d3b;         /* Jungle green */
+      --jungle-2: #0f6a52;       /* Brighter jungle */
+      --ink: #0b1220;            /* Deep ink */
+      --bg: #07120f;             /* Dark jungle bg */
+      --card: rgba(255,255,255,.06);
+      --card-2: rgba(255,255,255,.10);
+      --line: rgba(255,255,255,.12);
+      --text: rgba(245, 248, 248, .92);
+      --muted: rgba(245, 248, 248, .72);
+      --gold: #c9a227;           /* Premium accent */
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+      --radius2: 28px;
+      --max: 1180px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font-family: "Jost", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(15,106,82,.35), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(201,162,39,.12), transparent 65%),
+        linear-gradient(180deg, #050c0a 0%, #050c0a 35%, #07120f 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    .container{ width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+
+    /* ===== Premium Navbar ===== */
+    .nav{
+      position: fixed;
+      top: 14px;
+      left: 0; right: 0;
+      z-index: 50;
+      pointer-events: none;
+    }
+    .nav .bar{
+      pointer-events: auto;
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(6, 12, 10, .55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+    }
+    .brand{
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      white-space: nowrap;
+    }
+    .mark{
+      width: 38px; height: 38px;
+      border-radius: 14px;
+      background:
+        radial-gradient(12px 12px at 30% 35%, rgba(201,162,39,.95), transparent 55%),
+        linear-gradient(135deg, rgba(15,106,82,.95), rgba(11,77,59,.9));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 12px 24px rgba(0,0,0,.35);
+      position: relative;
+    }
+    .mark:after{
+      content:"";
+      position:absolute;
+      inset: 8px 10px 10px 8px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+    }
+    .brand small{
+      display:block;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .2px;
+      margin-top: -2px;
+    }
+
+    .navlinks{ display: flex; gap: 10px; align-items: center; }
+    .pill{
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(245,248,248,.90);
+      background: rgba(255,255,255,.04);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      font-weight: 600;
+      font-size: .98rem;
+    }
+    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); }
+
+    .cta{
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      color: #07120f;
+      background: linear-gradient(135deg, rgba(201,162,39,.95), rgba(255,224,120,.82));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 14px 28px rgba(201,162,39,.18);
+      transition: transform .18s ease, filter .18s ease;
+      white-space: nowrap;
+    }
+    .cta:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+
+    /* ===== Hero 100vh ===== */
+    .hero{
+      min-height: 100vh;
+      padding: 120px 0 52px;
+      position: relative;
+      display: grid;
+      align-items: center;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset: 0;
+      background:
+        radial-gradient(1200px 700px at 10% 10%, rgba(15,106,82,.22), transparent 65%),
+        radial-gradient(900px 600px at 70% 20%, rgba(201,162,39,.10), transparent 70%),
+        linear-gradient(90deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.60) 100%);
+      pointer-events: none;
+    }
+    .hero::after{
+      /* Background image layer (swap URL to your own) */
+      content:"";
+      position:absolute;
+      inset: 0;
+      background-image:
+        url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=2200&q=75");
+      background-size: cover;
+      background-position: center;
+      opacity: .26;
+      filter: saturate(1.05) contrast(1.05);
+      pointer-events:none;
+    }
+
+    .hero .content{
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(245,248,248,.86);
+      font-weight: 700;
+      letter-spacing: .2px;
+      width: fit-content;
+    }
+    .dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), rgba(255,224,120,.85));
+      box-shadow: 0 0 0 6px rgba(201,162,39,.10);
+    }
+
+    h1{
+      font-size: clamp(2.3rem, 4.5vw, 4rem);
+      line-height: 1.02;
+      margin: 14px 0 10px;
+      letter-spacing: -0.8px;
+    }
+    .sub{
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.55;
+      margin: 0 0 18px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .btn{
+      display:inline-flex; gap:10px; align-items:center; justify-content:center;
+      border-radius: 999px;
+      padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(245,248,248,.92);
+      font-weight: 800;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); }
+    .btn-primary{
+      background: linear-gradient(135deg, rgba(15,106,82,.95), rgba(11,77,59,.95));
+      border-color: rgba(255,255,255,.14);
+      box-shadow: 0 18px 44px rgba(0,0,0,.35);
+    }
+    .btn-primary:hover{ filter: brightness(1.03); }
+    .btn-gold{
+      background: linear-gradient(135deg, rgba(201,162,39,.95), rgba(255,224,120,.82));
+      color: #06110d;
+      border-color: rgba(255,255,255,.20);
+    }
+
+    .hero-panel{
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-panel .top{
+      padding: 18px 18px 12px;
+      display:flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .hero-panel .top h3{
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: .2px;
+    }
+    .hero-panel .top p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.45;
+      font-size: .98rem;
+    }
+    .badge{
+      display:inline-flex;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: .86rem;
+      letter-spacing: .3px;
+      background: rgba(201,162,39,.16);
+      border: 1px solid rgba(201,162,39,.26);
+      color: rgba(255, 234, 170, .95);
+      white-space: nowrap;
+    }
+
+    /* ===== Swiper Packages ===== */
+    .packages{
+      padding: 36px 0 72px;
+      position: relative;
+      z-index: 2;
+    }
+    .section-head{
+      display:flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .section-head h2{
+      margin: 0;
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      letter-spacing: -0.3px;
+    }
+    .section-head p{
+      margin: 0;
+      color: var(--muted);
+      max-width: 62ch;
+      line-height: 1.55;
+    }
+
+    .swiper{
+      margin-top: 18px;
+      padding: 6px 2px 40px;
+    }
+
+    .tour-card{
+      height: 100%;
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.045));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 18px 60px rgba(0,0,0,.38);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 420px;
+      position: relative;
+      transform: translateZ(0);
+    }
+    .tour-media{
+      height: 200px;
+      background: #0b0f0e;
+      position: relative;
+      overflow: hidden;
+    }
+    .tour-media img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      filter: contrast(1.04) saturate(1.06);
+      opacity: .92;
+    }
+    .tour-media::after{
+      content:"";
+      position:absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.55) 100%);
+      pointer-events:none;
+    }
+
+    .tour-body{
+      padding: 16px 16px 14px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .tour-kicker{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .tour-tag{
+      display:inline-flex;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(15,106,82,.18);
+      border: 1px solid rgba(15,106,82,.28);
+      color: rgba(216, 255, 242, .90);
+      font-weight: 800;
+      font-size: .86rem;
+      letter-spacing: .2px;
+    }
+    .tour-meta{
+      color: rgba(245,248,248,.78);
+      font-weight: 700;
+      font-size: .92rem;
+      white-space: nowrap;
+    }
+
+    .tour-title{
+      margin: 0;
+      font-size: 1.22rem;
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+    }
+    .tour-desc{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 500;
+      font-size: .98rem;
+      max-width: 60ch;
+    }
+
+    .tour-highlights{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+    .chip{
+      display:inline-flex;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: rgba(245,248,248,.86);
+      font-weight: 700;
+      font-size: .88rem;
+    }
+
+    .tour-actions{
+      display:flex;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+    .tour-actions .btn{
+      padding: 11px 14px;
+      font-weight: 900;
+      flex: 1;
+    }
+
+    /* Swiper controls */
+    .swiper-pagination-bullet{
+      background: rgba(255,255,255,.35);
+      opacity: 1;
+    }
+    .swiper-pagination-bullet-active{
+      background: rgba(201,162,39,.92);
+    }
+
+    /* ===== Footer ===== */
+    footer{
+      background: #000;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 46px 0 26px;
+    }
+    .footgrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .footbrand{
+      display:flex; gap: 12px; align-items: flex-start;
+    }
+    .footbrand h3{
+      margin: 0;
+      font-size: 1.12rem;
+      letter-spacing: .2px;
+    }
+    .footbrand p{
+      margin: 6px 0 0;
+      color: rgba(245,248,248,.70);
+      line-height: 1.55;
+      max-width: 48ch;
+      font-weight: 500;
+    }
+    .footcol h4{
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: rgba(245,248,248,.92);
+      letter-spacing: .2px;
+    }
+    .footcol a, .footcol span{
+      display:block;
+      padding: 7px 0;
+      color: rgba(245,248,248,.70);
+      font-weight: 600;
+    }
+    .footcol a:hover{ color: rgba(245,248,248,.92); }
+
+    .footbar{
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display:flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: rgba(245,248,248,.62);
+      font-weight: 600;
+      font-size: .92rem;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .hero .content{ grid-template-columns: 1fr; }
+      .navlinks{ display:none; }
+      .hero{ padding-top: 110px; }
+    }
+    @media (max-width: 640px){
+      .container{ width: min(var(--max), calc(100% - 30px)); }
+      .sub{ font-size: 1.03rem; }
+      .hero-actions .btn{ width: 100%; }
+      .hero-panel .top{ padding: 16px; }
+      .tour-media{ height: 190px; }
+      .footgrid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="bar">
+      <a class="brand" href="#top" aria-label="Njeru Tours & Travels">
+        <span class="mark" aria-hidden="true"></span>
+        <span>
+          Njeru Tours &amp; Travels
+          <small>Premium journeys • East Africa</small>
+        </span>
+      </a>
+
+      <div class="navlinks" aria-label="Primary navigation">
+        <a class="pill" href="#packages">Packages</a>
+        <a class="pill" href="#contact">Contact</a>
+        <a class="cta" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp Concierge</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header id="top" class="hero">
+    <div class="container">
+      <div class="content">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Machakos-based • Curated travel planning</span>
+          <h1>Luxury travel, crafted with local expertise.</h1>
+          <p class="sub">
+            Njeru Tours &amp; Travels designs unforgettable safaris and coastal escapes with premium service, trusted logistics,
+            and a concierge touch — from planning to arrival.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#packages">Explore Packages</a>
+            <a class="btn btn-gold" href="https://wa.me/254722933305" target="_blank" rel="noopener">Plan on WhatsApp</a>
+            <a class="btn" href="tel:+254722933305">Call: +254 722 933305</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Quick contact card">
+          <div class="top">
+            <div>
+              <h3>Concierge Support</h3>
+              <p>Fast responses for quotes, custom itineraries &amp; bookings.</p>
+            </div>
+            <span class="badge">Open Today</span>
+          </div>
+
+          <div style="padding: 0 18px 18px;">
+            <div style="display:grid; gap:10px; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18);">
+              <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+                <span style="color:rgba(245,248,248,.72); font-weight:700;">Phone / WhatsApp</span>
+                <strong style="font-weight:900;">+254 722 933305</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+                <span style="color:rgba(245,248,248,.72); font-weight:700;">Location</span>
+                <strong style="font-weight:800; text-align:right;">
+                  Machakos (Opp. Machakos County Govt HQs)<br/>
+                  Kyumvi–Machakos Road
+                </strong>
+              </div>
+
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 2px;">
+                <a class="btn btn-primary" style="flex:1;" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="btn" style="flex:1;" href="tel:+254722933305">Call Now</a>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- PACKAGES (Swiper) -->
+  <section id="packages" class="packages">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Featured Packages</h2>
+          <p>Four premium options — designed to be clear, elegant, and easy to book.</p>
+        </div>
+      </div>
+
+      <div class="swiper" aria-label="Package slider">
+        <div class="swiper-wrapper">
+
+          <!-- 1 -->
+          <div class="swiper-slide">
+            <article class="tour-card">
+              <div class="tour-media">
+                <img alt="Maasai Mara luxury safari" src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=75">
+              </div>
+              <div class="tour-body">
+                <div class="tour-kicker">
+                  <span class="tour-tag">Best Seller</span>
+                  <span class="tour-meta">3 Days • Safari</span>
+                </div>
+                <h3 class="tour-title">Maasai Mara Luxury Escape</h3>
+                <p class="tour-desc">Signature game drives, curated lodge options, smooth transfers, and premium support.</p>
+                <div class="tour-highlights">
+                  <span class="chip">Private guide</span>
+                  <span class="chip">Lodge stays</span>
+                  <span class="chip">Airport pickup</span>
+                </div>
+                <div class="tour-actions">
+                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Njeru%20Tours%20%26%20Travels%2C%20I%27d%20like%20a%20quote%20for%20the%20Maasai%20Mara%20Luxury%20Escape." target="_blank" rel="noopener">Request Quote</a>
+                  <a class="btn" href="#contact">View Details</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- 2 -->
+          <div class="swiper-slide">
+            <article class="tour-card">
+              <div class="tour-media">
+                <img alt="Amboseli safari with Mount Kilimanjaro view" src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=1600&q=75">
+              </div>
+              <div class="tour-body">
+                <div class="tour-kicker">
+                  <span class="tour-tag">Premium</span>
+                  <span class="tour-meta">2 Days • Safari</span>
+                </div>
+                <h3 class="tour-title">Amboseli Views &amp; Elephants</h3>
+                <p class="tour-desc">Iconic landscapes, Kilimanjaro moments, and a relaxed premium itinerary.</p>
+                <div class="tour-highlights">
+                  <span class="chip">Sunrise drives</span>
+                  <span class="chip">Comfort stays</span>
+                  <span class="chip">All logistics</span>
+                </div>
+                <div class="tour-actions">
+                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Njeru%20Tours%20%26%20Travels%2C%20please%20share%20pricing%20for%20Amboseli%20Views%20%26%20Elephants." target="_blank" rel="noopener">Get Pricing</a>
+                  <a class="btn" href="#contact">Enquire</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- 3 -->
+          <div class="swiper-slide">
+            <article class="tour-card">
+              <div class="tour-media">
+                <img alt="Diani beach holiday" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=75">
+              </div>
+              <div class="tour-body">
+                <div class="tour-kicker">
+                  <span class="tour-tag">Honeymoon</span>
+                  <span class="tour-meta">4 Days • Beach</span>
+                </div>
+                <h3 class="tour-title">Diani Coast Retreat</h3>
+                <p class="tour-desc">Beachfront comfort, curated activities, and clean premium planning.</p>
+                <div class="tour-highlights">
+                  <span class="chip">Beach resort</span>
+                  <span class="chip">Romantic add-ons</span>
+                  <span class="chip">Transfers</span>
+                </div>
+                <div class="tour-actions">
+                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Njeru%20Tours%20%26%20Travels%2C%20I%27m%20interested%20in%20the%20Diani%20Coast%20Retreat.%20Please%20advise%20options." target="_blank" rel="noopener">Plan This Trip</a>
+                  <a class="btn" href="#contact">Talk to Us</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- 4 -->
+          <div class="swiper-slide">
+            <article class="tour-card">
+              <div class="tour-media">
+                <img alt="Nairobi city experience" src="https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&w=1600&q=75">
+              </div>
+              <div class="tour-body">
+                <div class="tour-kicker">
+                  <span class="tour-tag">City &amp; Culture</span>
+                  <span class="tour-meta">1 Day • Tour</span>
+                </div>
+                <h3 class="tour-title">Nairobi Signature Day Tour</h3>
+                <p class="tour-desc">Curated city highlights with a smooth plan, timing, and premium support.</p>
+                <div class="tour-highlights">
+                  <span class="chip">Private transfer</span>
+                  <span class="chip">Flexible stops</span>
+                  <span class="chip">Fast booking</span>
+                </div>
+                <div class="tour-actions">
+                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Njeru%20Tours%20%26%20Travels%2C%20I%27d%20like%20to%20book%20the%20Nairobi%20Signature%20Day%20Tour.%20What%20dates%20are%20available%3F" target="_blank" rel="noopener">Book Now</a>
+                  <a class="btn" href="#contact">Details</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <div class="swiper-pagination" aria-label="Slider pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT ANCHOR (for buttons) -->
+  <div id="contact"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footgrid">
+        <div class="footbrand">
+          <span class="mark" aria-hidden="true"></span>
+          <div>
+            <h3>Njeru Tours &amp; Travels</h3>
+            <p>
+              Premium, well-planned journeys across Kenya and beyond — designed with care, clarity, and concierge-level support.
+            </p>
+          </div>
+        </div>
+
+        <div class="footcol">
+          <h4>Contact</h4>
+          <a href="tel:+254722933305">Call: +254 722 933305</a>
+          <a href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp: +254 722 933305</a>
+        </div>
+
+        <div class="footcol">
+          <h4>Location</h4>
+          <span>Machakos (Opp. Machakos County Government HQs)</span>
+          <span>Kyumvi–Machakos Road</span>
+        </div>
+      </div>
+
+      <div class="footbar">
+        <span>© <span id="year"></span> Njeru Tours &amp; Travels. All rights reserved.</span>
+        <span style="color:rgba(201,162,39,.85); font-weight:800;">Jungle Green • Premium Travel</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Swiper init (premium + uncluttered)
+    const swiper = new Swiper(".swiper", {
+      loop: true,
+      grabCursor: true,
+      spaceBetween: 18,
+      autoplay: { delay: 4200, disableOnInteraction: false },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      breakpoints: {
+        0:   { slidesPerView: 1.08 },
+        640: { slidesPerView: 1.35 },
+        900: { slidesPerView: 2.15 },
+        1200:{ slidesPerView: 2.7 }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tours | Njeru Tours & Travels</title>
+
+  <!-- Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tours.css">
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="bar">
+      <a class="brand" href="index.html" aria-label="Njeru Tours & Travels">
+        <span class="mark" aria-hidden="true"></span>
+        <span>
+          Njeru Tours &amp; Travels
+          <small>Premium journeys • East Africa</small>
+        </span>
+      </a>
+
+      <div class="navlinks" aria-label="Primary navigation">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="tours.html">Tours</a>
+        <a class="pill" href="tours-details.html">Tour Details</a>
+        <a class="pill" href="destinations.html">Destinations</a>
+        <a class="pill" href="about.html">About</a>
+        <a class="pill" href="blog.html">Blog</a>
+        <a class="cta" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp Concierge</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO (60vh) -->
+  <header class="hero">
+    <div class="container content">
+      <span class="eyebrow"><span class="dot"></span> Filterable Premium Catalog</span>
+      <h1>Explore Tours &amp; Packages</h1>
+      <p class="sub">
+        Discover curated safaris, beach retreats, and signature day tours — refined options with clean details and clear calls to action.
+      </p>
+    </div>
+  </header>
+
+  <main id="tours">
+    <div class="container">
+      <div class="layout">
+
+        <!-- FILTER PANEL -->
+        <aside class="panel" aria-label="Filters">
+          <div class="panel-head">
+            <h2>Filters</h2>
+            <button class="ghost" id="clearBtn" type="button">Reset</button>
+          </div>
+
+          <div class="panel-body">
+            <div>
+              <label for="dest">Destination</label>
+              <select id="dest">
+                <option value="all" selected>All destinations</option>
+                <option value="mara">Maasai Mara</option>
+                <option value="amboseli">Amboseli</option>
+                <option value="diani">Diani</option>
+                <option value="zanzibar">Zanzibar</option>
+                <option value="nairobi">Nairobi</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="duration">Duration</label>
+              <select id="duration">
+                <option value="all" selected>Any duration</option>
+                <option value="1">1 Day</option>
+                <option value="2">2 Days</option>
+                <option value="3">3 Days</option>
+                <option value="4">4+ Days</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="range-row">
+                <label for="budget" style="margin:0">Budget (KES)</label>
+                <span id="budgetOut">Up to 250,000</span>
+              </div>
+              <input id="budget" type="range" min="50000" max="500000" step="50000" value="250000">
+            </div>
+
+            <div>
+              <label>Travel Style</label>
+              <div class="style-pills" id="stylePills">
+                <div class="style-pill active" data-style="all">All</div>
+                <div class="style-pill" data-style="luxury">Luxury</div>
+                <div class="style-pill" data-style="adventure">Adventure</div>
+                <div class="style-pill" data-style="family">Family</div>
+                <div class="style-pill" data-style="honeymoon">Honeymoon</div>
+              </div>
+            </div>
+
+            <div class="panel-actions">
+              <button class="btn btn-primary" id="applyBtn" type="button">Apply Filters</button>
+              <a class="btn btn-gold" href="https://wa.me/254722933305" target="_blank" rel="noopener">Get Help</a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- RESULTS -->
+        <section>
+          <div class="mobile-actions">
+            <span class="count" id="countMobile">—</span>
+            <button class="btn" type="button" id="openFilters">Filters</button>
+          </div>
+
+          <div class="results-head">
+            <div class="count" id="count">—</div>
+            <div class="sort">
+              <label for="sort" class="sr-only">Sort</label>
+              <span style="color:rgba(245,248,248,.76);font-weight:900;">Sort:</span>
+              <select id="sort">
+                <option value="popular" selected>Most Popular</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+                <option value="durationShort">Duration: Shortest</option>
+                <option value="durationLong">Duration: Longest</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid" id="grid"></div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- TOUR DETAILS MODAL -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="backdrop" id="modalBackdrop"></div>
+    <div class="dialog" role="document">
+      <div class="dialog-head">
+        <strong id="mTitle">Tour Details</strong>
+        <button class="x" id="closeModal" aria-label="Close">✕</button>
+      </div>
+      <div class="dialog-body">
+        <div class="dialog-media">
+          <img id="mImg" alt="" src="">
+        </div>
+        <div class="dialog-info">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+            <span class="tag" id="mStyle">Luxury</span>
+            <span class="meta" id="mMeta">3 Days • Mara</span>
+          </div>
+
+          <h3 class="title" id="mName" style="margin-top:2px;">—</h3>
+          <p id="mDesc">—</p>
+
+          <div class="chips" id="mChips"></div>
+
+          <div class="dialog-cta">
+            <a class="btn btn-primary" id="mQuote" href="#" target="_blank" rel="noopener">Request Quote</a>
+            <a class="btn btn-gold" href="tel:+254722933305">Call +254 722 933305</a>
+            <button class="btn" id="mSave" type="button">Save to Wishlist</button>
+          </div>
+
+          <p style="font-size:.95rem;color:rgba(245,248,248,.62);margin-top:6px;">
+            Office: Machakos (Opp. Machakos County Govt HQs), Kyumvi–Machakos Road.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE FILTERS MODAL (reuses the same filter panel) -->
+  <div class="modal" id="filtersModal" aria-hidden="true">
+    <div class="backdrop" id="filtersBackdrop"></div>
+    <div class="dialog" style="max-width:720px;">
+      <div class="dialog-head">
+        <strong>Filters</strong>
+        <button class="x" id="closeFilters" aria-label="Close">✕</button>
+      </div>
+      <div style="padding:14px 16px;">
+        <!-- We'll clone the filter panel body here via JS on small screens -->
+        <div id="filtersClone"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footbar">
+        <span>© <span id="year"></span> Njeru Tours &amp; Travels</span>
+        <span style="color:rgba(201,162,39,.85); font-weight:1000;">WhatsApp: +254 722 933305</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="tours.js"></script>
+</body>
+</html>

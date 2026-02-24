@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tour Details | Njeru Tours & Travels</title>
+
+  <!-- Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tours-details.css">
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="bar">
+      <a class="brand" href="index.html" aria-label="Njeru Tours & Travels">
+        <span class="mark" aria-hidden="true"></span>
+        <span>
+          Njeru Tours &amp; Travels
+          <small>Premium journeys • East Africa</small>
+        </span>
+      </a>
+
+      <div class="navlinks">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="tours.html">Tours</a>
+        <a class="pill" href="tours-details.html">Tour Details</a>
+        <a class="pill" href="destinations.html">Destinations</a>
+        <a class="pill" href="about.html">About</a>
+        <a class="pill" href="blog.html">Blog</a>
+        <a class="cta" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp Concierge</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO 60vh -->
+  <header class="hero">
+    <div class="container content">
+      <div class="crumbs">
+        <a href="index.html">Home</a>
+        <span style="opacity:.5">/</span>
+        <a href="tours.html">Tours</a>
+        <span style="opacity:.5">/</span>
+        <span>Tour Details</span>
+      </div>
+
+      <span class="eyebrow"><span class="dot"></span> Signature Safari Experience</span>
+      <h1 id="tourTitle">Maasai Mara Luxury Escape</h1>
+      <p class="sub" id="tourSubtitle">
+        Curated lodge stays, iconic game drives, and premium planning — designed for comfort and unforgettable moments.
+      </p>
+
+      <div class="hero-meta">
+        <span class="chip"><strong id="tourPrice">KES 240,000</strong> <span style="opacity:.8">/ person</span></span>
+        <span class="chip"><span id="tourDuration">3 Days</span></span>
+        <span class="chip"><span id="tourLocation">Maasai Mara</span></span>
+        <span class="chip"><span id="tourStyle">Luxury</span></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="layout">
+        <!-- LEFT: Details -->
+        <div style="display:grid; gap:14px;">
+          <!-- Gallery -->
+          <section class="card" aria-label="Gallery">
+            <div class="card-head">
+              <h2>Gallery</h2>
+              <button class="btn" type="button" id="openGalleryBtn">View Fullscreen</button>
+            </div>
+            <div class="card-body">
+              <div class="gallery">
+                <div class="g-main">
+                  <img id="mainImg" src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1800&q=75" alt="Tour photo">
+                </div>
+                <div class="g-grid" id="thumbs">
+                  <div class="thumb" data-src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1800&q=75">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=70" alt="Thumbnail 1">
+                  </div>
+                  <div class="thumb" data-src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1800&q=75">
+                    <img src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=900&q=70" alt="Thumbnail 2">
+                  </div>
+                  <div class="thumb" data-src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1800&q=75">
+                    <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=900&q=70" alt="Thumbnail 3">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Itinerary -->
+          <section class="card" aria-label="Itinerary">
+            <div class="card-head">
+              <h2>Itinerary</h2>
+              <span class="chip" style="padding:9px 12px;">Sample schedule</span>
+            </div>
+            <div class="card-body">
+              <div class="timeline" id="itinerary">
+                <div class="day">
+                  <div class="badge">Day 1</div>
+                  <div>
+                    <h3>Arrival &amp; First Game Drive</h3>
+                    <p>Pickup, scenic transfer, check-in, and an afternoon game drive. Evening at the lodge.</p>
+                  </div>
+                </div>
+                <div class="day">
+                  <div class="badge">Day 2</div>
+                  <div>
+                    <h3>Full-Day Safari Experience</h3>
+                    <p>Morning and afternoon drives with curated stops and relaxed pacing for premium comfort.</p>
+                  </div>
+                </div>
+                <div class="day">
+                  <div class="badge">Day 3</div>
+                  <div>
+                    <h3>Sunrise Drive &amp; Return</h3>
+                    <p>Optional sunrise drive, breakfast, checkout, and transfer back with smooth coordination.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Inclusions -->
+          <section class="card" aria-label="Inclusions">
+            <div class="card-head">
+              <h2>Inclusions</h2>
+              <span class="chip" style="padding:9px 12px;">Clear &amp; transparent</span>
+            </div>
+            <div class="card-body">
+              <div class="two-col">
+                <div>
+                  <h3 style="margin:0 0 8px;font-size:1.02rem;">Included</h3>
+                  <ul class="clean" id="included">
+                    <li>Transport &amp; transfers (as per itinerary)</li>
+                    <li>Professional guide / driver</li>
+                    <li>Curated accommodation options</li>
+                    <li>Game drives (as scheduled)</li>
+                    <li>Customer support via WhatsApp</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 style="margin:0 0 8px;font-size:1.02rem;">Not Included</h3>
+                  <ul class="clean" id="excluded">
+                    <li>Park fees (if applicable)</li>
+                    <li>Personal expenses &amp; tips</li>
+                    <li>Travel insurance</li>
+                    <li>Optional add-on activities</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Map -->
+          <section class="card" aria-label="Map">
+            <div class="card-head">
+              <h2>Map</h2>
+              <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Maasai+Mara" target="_blank" rel="noopener">Open in Google Maps</a>
+            </div>
+            <div class="card-body">
+              <div class="map">
+                <!-- Replace with a specific embed for the exact lodge/route if you want -->
+                <iframe
+                  title="Map"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps?q=Maasai%20Mara&output=embed">
+                </iframe>
+              </div>
+            </div>
+          </section>
+
+          <!-- Reviews -->
+          <section class="card" aria-label="Reviews">
+            <div class="card-head">
+              <h2>Reviews</h2>
+              <span class="chip" style="padding:9px 12px;">★★★★★ 5.0</span>
+            </div>
+            <div class="card-body">
+              <div class="reviews" id="reviews">
+                <div class="review">
+                  <div class="stars">★★★★★</div>
+                  <p>“Smooth planning and premium service. Everything was well-coordinated and stress-free.”</p>
+                  <div class="who"><strong>Mary N.</strong><span>Mara</span></div>
+                </div>
+                <div class="review">
+                  <div class="stars">★★★★★</div>
+                  <p>“Great lodge options and perfect timing. The itinerary felt premium and well thought out.”</p>
+                  <div class="who"><strong>Kevin M.</strong><span>Safari</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- RIGHT: Booking / Enquiry -->
+        <aside id="book" class="booking">
+          <div class="card">
+            <div class="card-head">
+              <h2>Booking / Enquiry</h2>
+              <a class="btn btn-gold" href="tel:+254722933305">Call</a>
+            </div>
+
+            <div class="card-body">
+              <p class="price">
+                <span id="sidePrice">KES 240,000</span>
+                <small> • per person</small>
+              </p>
+
+              <div class="form" style="margin-top:12px;">
+                <div class="row">
+                  <div>
+                    <label for="date">Travel Date</label>
+                    <input id="date" type="date" required>
+                  </div>
+                  <div>
+                    <label for="group">Group Size</label>
+                    <select id="group" required>
+                      <option value="" selected disabled>Select</option>
+                      <option>1–2</option>
+                      <option>3–5</option>
+                      <option>6–10</option>
+                      <option>10+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div>
+                    <label for="name">Name</label>
+                    <input id="name" placeholder="Your name" required>
+                  </div>
+                  <div>
+                    <label for="phone">Phone</label>
+                    <input id="phone" placeholder="+254..." required>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="notes">Preferences</label>
+                  <textarea id="notes" placeholder="Pick-up location, hotel preference, budget range, special requests..."></textarea>
+                </div>
+
+                <div class="cta-stack">
+                  <button class="btn btn-primary" type="button" id="sendWhatsApp">Send Enquiry via WhatsApp</button>
+                  <a class="btn" href="https://wa.me/254722933305" target="_blank" rel="noopener">Chat on WhatsApp</a>
+                </div>
+
+                <p class="note">
+                  Office: Machakos (Opp. Machakos County Government HQs), Kyumvi–Machakos Road.<br>
+                  Calls/WhatsApp: <strong>+254 722 933305</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- LIGHTBOX (Gallery fullscreen) -->
+  <div class="modal" id="lightbox" aria-hidden="true">
+    <div class="backdrop" id="lbBackdrop"></div>
+    <div class="lightbox" role="dialog" aria-modal="true">
+      <button class="x" id="lbClose" aria-label="Close">✕</button>
+      <img id="lbImg" src="" alt="Fullscreen photo">
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footgrid">
+        <div class="footbrand">
+          <span class="mark" aria-hidden="true"></span>
+          <div>
+            <h3>Njeru Tours &amp; Travels</h3>
+            <p>Premium, well-planned journeys across Kenya and beyond — designed with care, clarity, and concierge-level support.</p>
+          </div>
+        </div>
+
+        <div class="footcol">
+          <h4>Contact</h4>
+          <a href="tel:+254722933305">Call: +254 722 933305</a>
+          <a href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp: +254 722 933305</a>
+        </div>
+
+        <div class="footcol">
+          <h4>Location</h4>
+          <span>Machakos (Opp. Machakos County Government HQs)</span>
+          <span>Kyumvi–Machakos Road</span>
+        </div>
+      </div>
+
+      <div class="footbar">
+        <span>© <span id="year"></span> Njeru Tours &amp; Travels. All rights reserved.</span>
+        <span class="credit">Developed by <a href="https://sarahadevelopers.co.ke" target="_blank" rel="noopener">sarahadevelopers.co.ke</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="tours-details.js"></script>
+</body>
+</html>

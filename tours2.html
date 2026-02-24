@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tours | Njeru Tours & Travels</title>
+
+  <!-- Jost font with preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & VARIABLES ===== */
+    :root {
+      --jungle: #0b4d3b;
+      --jungle2: #0f6a52;
+      --bg0: #050c0a;
+      --bg1: #07120f;
+      --gold: #c9a227;
+      --text: rgba(245,248,248,.92);
+      --muted: rgba(245,248,248,.72);
+      --line: rgba(255,255,255,.12);
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.10);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+      --radius2: 28px;
+      --max: 1180px;
+      --scrollbar-width: 0px; /* will be set by JS */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Jost", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(15,106,82,.35), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(201,162,39,.12), transparent 65%),
+        linear-gradient(180deg, var(--bg0) 0%, var(--bg0) 35%, var(--bg1) 100%);
+      overflow-x: hidden;
+    }
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg1);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--jungle2);
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--jungle);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .sr-only {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* focus-visible outlines */
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* ===== NAV (unchanged but refined) ===== */
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 50;
+      margin-bottom: 14px;
+      pointer-events: none;
+    }
+    .nav .bar {
+      pointer-events: auto;
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(6,12,10,.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: .3px;
+      white-space: nowrap;
+    }
+    .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background:
+        radial-gradient(12px 12px at 30% 35%, rgba(201,162,39,.95), transparent 55%),
+        linear-gradient(135deg, rgba(15,106,82,.95), rgba(11,77,59,.90));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 12px 24px rgba(0,0,0,.35);
+      position: relative;
+    }
+    .mark:after {
+      content: "";
+      position: absolute;
+      inset: 8px 10px 10px 8px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+    }
+    .brand small {
+      display: block;
+      font-weight: 600;
+      color: var(--muted);
+      margin-top: -2px;
+    }
+    .navlinks {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      font-weight: 700;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .pill:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+    }
+    .cta {
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 900;
+      color: #07120f;
+      background: linear-gradient(135deg, rgba(201,162,39,.95), rgba(255,224,120,.82));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 14px 28px rgba(201,162,39,.18);
+      transition: transform .18s ease, filter .18s ease;
+      white-space: nowrap;
+    }
+    .cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 60vh;
+      padding: 40px 0 42px;
+      position: relative;
+      display: grid;
+      align-items: center;
+    }
+    .hero picture,
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .22;
+      filter: saturate(1.05) contrast(1.05);
+      z-index: 0;
+    }
+    .hero .content {
+      position: relative;
+      z-index: 2;
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      font-weight: 800;
+      color: rgba(245,248,248,.86);
+      width: fit-content;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), rgba(255,224,120,.85));
+      box-shadow: 0 0 0 6px rgba(201,162,39,.10);
+    }
+    h1 {
+      font-size: clamp(2.0rem,4vw,3.2rem);
+      line-height: 1.05;
+      margin: 14px 0 10px;
+      letter-spacing: -.8px;
+    }
+    .sub {
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ===== MAIN LAYOUT ===== */
+    main {
+      padding: 26px 0 84px;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    /* ===== FILTER PANEL (single source) ===== */
+    .panel {
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .panel.stuck {
+      position: sticky;
+      top: 92px;
+    }
+    .panel-head {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.18);
+    }
+    .panel-head h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: -.2px;
+    }
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      font-weight: 900;
+      color: rgba(245,248,248,.86);
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      white-space: nowrap;
+    }
+    .ghost:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.18);
+    }
+    .panel-body {
+      padding: 14px 16px 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: block;
+      font-weight: 900;
+      color: rgba(245,248,248,.82);
+      font-size: .92rem;
+      margin: 4px 0 6px;
+    }
+    select, input[type="range"] {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(245,248,248,.92);
+      outline: none;
+      font-family: inherit;
+      font-weight: 800;
+    }
+    .range-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .range-row span {
+      color: rgba(245,248,248,.70);
+      font-weight: 800;
+      font-size: .92rem;
+    }
+
+    /* style pills as radio buttons */
+    .style-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .style-pill {
+      flex: 1 1 auto;
+      min-width: calc(50% - 8px);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      font-weight: 900;
+      color: rgba(245,248,248,.86);
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      text-align: center;
+      user-select: none;
+    }
+    .style-pill:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.18);
+    }
+    .style-pill[aria-checked="true"] {
+      background: rgba(15,106,82,.18);
+      border-color: rgba(15,106,82,.34);
+      color: rgba(216,255,242,.92);
+    }
+
+    .panel-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .btn {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(245,248,248,.92);
+      font-weight: 1000;
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      white-space: nowrap;
+      width: 100%;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.18);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(15,106,82,.95), rgba(11,77,59,.95));
+      border-color: rgba(255,255,255,.14);
+      box-shadow: 0 18px 44px rgba(0,0,0,.35);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, rgba(201,162,39,.95), rgba(255,224,120,.82));
+      color: #06110d;
+      border-color: rgba(255,255,255,.20);
+    }
+
+    /* ===== RESULTS SECTION ===== */
+    .results-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .count {
+      color: rgba(245,248,248,.76);
+      font-weight: 900;
+    }
+    .sort {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 10px 12px;
+      border-radius: 999px;
+      box-shadow: 0 14px 34px rgba(0,0,0,.22);
+    }
+    .sort label {
+      margin: 0;
+      font-size: .9rem;
+    }
+    .sort select {
+      padding: 0;
+      border: none;
+      background: transparent;
+      width: auto;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    /* empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius2);
+      background: rgba(0,0,0,0.2);
+    }
+    .empty-state p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    /* card grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .card {
+      grid-column: span 6;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 460px;
+      position: relative;
+      transform: translateZ(0);
+    }
+    .media {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #0b0f0e;
+    }
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.04) saturate(1.06);
+      opacity: .92;
+    }
+    .media:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.62) 100%);
+      pointer-events: none;
+    }
+
+    /* premium save button */
+    .save {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      box-shadow: 0 14px 30px rgba(0,0,0,.30);
+      font-weight: 1000;
+      font-size: 1.2rem;
+    }
+    .save:hover {
+      transform: translateY(-1px);
+      background: rgba(0,0,0,.32);
+      border-color: rgba(255,255,255,.22);
+    }
+    .save[aria-pressed="true"] {
+      background: rgba(201,162,39,.16);
+      border-color: rgba(201,162,39,.32);
+      color: rgba(255,234,170,.95);
+    }
+
+    .body {
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .kicker {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .tag {
+      display: inline-flex;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(15,106,82,.18);
+      border: 1px solid rgba(15,106,82,.28);
+      color: rgba(216,255,242,.92);
+      font-weight: 1000;
+      font-size: .86rem;
+    }
+    .meta {
+      color: rgba(245,248,248,.78);
+      font-weight: 900;
+      font-size: .92rem;
+      white-space: nowrap;
+    }
+    .title {
+      margin: 0;
+      font-size: 1.28rem;
+      letter-spacing: -.2px;
+      line-height: 1.2;
+    }
+    .desc {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 500;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 3.2em;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      display: inline-flex;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: rgba(245,248,248,.86);
+      font-weight: 900;
+      font-size: .88rem;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+    .actions .btn {
+      padding: 11px 14px;
+    }
+
+    /* ===== MODALS ===== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      z-index: 80;
+      padding: 18px;
+    }
+    .modal.open {
+      display: grid;
+    }
+    .backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .dialog {
+      position: relative;
+      width: min(920px, 100%);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      box-shadow: 0 26px 90px rgba(0,0,0,.55);
+      overflow: hidden;
+    }
+    .dialog-head {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+    }
+    .dialog-head strong {
+      font-size: 1.05rem;
+      letter-spacing: -.2px;
+    }
+    .x {
+      width: 42px;
+      height: 42px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: rgba(245,248,248,.90);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-weight: 1000;
+    }
+    .dialog-body {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 0;
+    }
+    .dialog-media {
+      min-height: 360px;
+      background: #0b0f0e;
+      position: relative;
+    }
+    .dialog-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .92;
+      filter: contrast(1.04) saturate(1.06);
+    }
+    .dialog-media:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.70) 100%);
+      pointer-events: none;
+    }
+    .dialog-info {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .dialog-info p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+    .dialog-info .chips {
+      margin-top: 2px;
+    }
+    .dialog-cta {
+      display: grid;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #000;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 42px 0 24px;
+    }
+    .footbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: rgba(245,248,248,.62);
+      font-weight: 800;
+      font-size: .92rem;
+    }
+
+    /* ===== MOBILE ADAPTATIONS ===== */
+    .mobile-actions {
+      display: none;
+      margin: 0 0 12px;
+    }
+    .mobile-actions .btn {
+      width: auto;
+    }
+
+    /* panel placement for mobile */
+    #filterPanel.desktop-panel {
+      /* shown by default */
+    }
+    #filterPanel.mobile-panel {
+      /* when inside modal, no extra styling needed */
+    }
+
+    @media (max-width: 980px) {
+      .navlinks {
+        display: none;
+      }
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .panel.stuck {
+        position: static;
+      }
+      .card {
+        grid-column: span 12;
+      }
+      .dialog-body {
+        grid-template-columns: 1fr;
+      }
+      .dialog-media {
+        min-height: 240px;
+      }
+      .mobile-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 30px));
+      }
+    }
+
+    /* print styles */
+    @media print {
+      .nav, .hero, .panel, .mobile-actions, .sort, .actions, .save, .modal, footer {
+        display: none !important;
+      }
+      body {
+        background: white;
+        color: black;
+      }
+      .card {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="bar">
+      <a class="brand" href="index.html" aria-label="Njeru Tours & Travels">
+        <span class="mark" aria-hidden="true"></span>
+        <span>
+          Njeru Tours &amp; Travels
+          <small>Premium journeys • East Africa</small>
+        </span>
+      </a>
+
+      <div class="navlinks" aria-label="Primary navigation">
+        <a class="pill" href="index.html#packages">Home</a>
+        <a class="pill" href="#tours">Tours</a>
+        <a class="cta" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp Concierge</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO with responsive image -->
+  <header class="hero">
+    <picture>
+      <source media="(max-width: 640px)" srcset="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=640&q=75">
+      <source media="(min-width: 641px)" srcset="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=2200&q=75">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=2200&q=75" alt="" loading="eager">
+    </picture>
+    <div class="container content">
+      <span class="eyebrow"><span class="dot"></span> Filterable Premium Catalog</span>
+      <h1>Explore Tours &amp; Packages</h1>
+      <p class="sub">
+        Discover curated safaris, beach retreats, and signature day tours — refined options with clean details and clear calls to action.
+      </p>
+    </div>
+  </header>
+
+  <main id="tours">
+    <div class="container">
+      <div class="layout">
+        <!-- FILTER PANEL (single source) -->
+        <aside class="panel stuck" id="filterPanel" aria-label="Filters">
+          <div class="panel-head">
+            <h2>Filters</h2>
+            <button class="ghost" id="clearBtn" type="button">Reset</button>
+          </div>
+
+          <div class="panel-body">
+            <div>
+              <label for="dest">Destination</label>
+              <select id="dest">
+                <option value="all" selected>All destinations</option>
+                <option value="mara">Maasai Mara</option>
+                <option value="amboseli">Amboseli</option>
+                <option value="diani">Diani</option>
+                <option value="zanzibar">Zanzibar</option>
+                <option value="nairobi">Nairobi</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="duration">Duration</label>
+              <select id="duration">
+                <option value="all" selected>Any duration</option>
+                <option value="1">1 Day</option>
+                <option value="2">2 Days</option>
+                <option value="3">3 Days</option>
+                <option value="4">4+ Days</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="range-row">
+                <label for="budget" style="margin:0">Budget (KES)</label>
+                <span id="budgetOut">Up to 250,000</span>
+              </div>
+              <input id="budget" type="range" min="50000" max="500000" step="50000" value="250000">
+            </div>
+
+            <div>
+              <label id="style-label">Travel Style</label>
+              <div class="style-pills" id="stylePills" role="radiogroup" aria-labelledby="style-label">
+                <button class="style-pill" data-style="all" role="radio" aria-checked="true">All</button>
+                <button class="style-pill" data-style="luxury" role="radio" aria-checked="false">Luxury</button>
+                <button class="style-pill" data-style="adventure" role="radio" aria-checked="false">Adventure</button>
+                <button class="style-pill" data-style="family" role="radio" aria-checked="false">Family</button>
+                <button class="style-pill" data-style="honeymoon" role="radio" aria-checked="false">Honeymoon</button>
+              </div>
+            </div>
+
+            <div class="panel-actions">
+              <button class="btn btn-primary" id="applyBtn" type="button">Apply Filters</button>
+              <a class="btn btn-gold" href="https://wa.me/254722933305" target="_blank" rel="noopener">Get Help</a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- RESULTS -->
+        <section>
+          <div class="mobile-actions">
+            <span class="count" id="countMobile">—</span>
+            <button class="btn" type="button" id="openFilters">Filters</button>
+          </div>
+
+          <div class="results-head">
+            <div class="count" id="count">—</div>
+            <div class="sort">
+              <label for="sort" class="sr-only">Sort</label>
+              <span style="color:rgba(245,248,248,.76);font-weight:900;">Sort:</span>
+              <select id="sort">
+                <option value="popular" selected>Most Popular</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+                <option value="durationShort">Duration: Shortest</option>
+                <option value="durationLong">Duration: Longest</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Grid container -->
+          <div id="gridContainer"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- TOUR DETAILS MODAL -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="backdrop" id="modalBackdrop"></div>
+    <div class="dialog" role="document">
+      <div class="dialog-head">
+        <strong id="mTitle">Tour Details</strong>
+        <button class="x" id="closeModal" aria-label="Close"><span aria-hidden="true">✕</span><span class="sr-only">Close modal</span></button>
+      </div>
+      <div class="dialog-body">
+        <div class="dialog-media">
+          <img id="mImg" alt="" src="" loading="lazy">
+        </div>
+        <div class="dialog-info">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+            <span class="tag" id="mStyle">Luxury</span>
+            <span class="meta" id="mMeta">3 Days • Mara</span>
+          </div>
+
+          <h3 class="title" id="mName" style="margin-top:2px;">—</h3>
+          <p id="mDesc">—</p>
+
+          <div class="chips" id="mChips"></div>
+
+          <div class="dialog-cta">
+            <a class="btn btn-primary" id="mQuote" href="#" target="_blank" rel="noopener">Request Quote</a>
+            <a class="btn btn-gold" href="tel:+254722933305">Call +254 722 933305</a>
+            <button class="btn" id="mSave" type="button">Save to Wishlist</button>
+          </div>
+
+          <p style="font-size:.95rem;color:rgba(245,248,248,.62);margin-top:6px;">
+            Office: Machakos (Opp. Machakos County Govt HQs), Kyumvi–Machakos Road.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE FILTERS MODAL (empty container – panel will be moved here) -->
+  <div class="modal" id="filtersModal" aria-hidden="true">
+    <div class="backdrop" id="filtersBackdrop"></div>
+    <div class="dialog" style="max-width:720px;">
+      <div class="dialog-head">
+        <strong>Filters</strong>
+        <button class="x" id="closeFilters" aria-label="Close"><span aria-hidden="true">✕</span><span class="sr-only">Close filters</span></button>
+      </div>
+      <div id="filtersModalBody" style="padding:14px 16px;">
+        <!-- panel will be moved here on mobile -->
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footbar">
+        <span>© <span id="year"></span> Njeru Tours &amp; Travels</span>
+        <span style="color:rgba(201,162,39,.85); font-weight:1000;">WhatsApp: +254 722 933305</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      "use strict";
+
+      // ===== DATA =====
+      const TOURS = [
+        {
+          id:"mara-lux-3d",
+          name:"Maasai Mara Luxury Escape",
+          dest:"mara",
+          destLabel:"Maasai Mara",
+          durationDays:3,
+          style:"luxury",
+          styleLabel:"Luxury",
+          price:240000,
+          popular: 98,
+          img:"https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=75",
+          desc:"Signature game drives, curated lodge stays, and premium logistics end-to-end.",
+          highlights:["Private guide","Lodge stays","Transfers"]
+        },
+        {
+          id:"amboseli-2d",
+          name:"Amboseli Views & Elephants",
+          dest:"amboseli",
+          destLabel:"Amboseli",
+          durationDays:2,
+          style:"adventure",
+          styleLabel:"Adventure",
+          price:120000,
+          popular: 90,
+          img:"https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=1600&q=75",
+          desc:"Kilimanjaro moments, calm pacing, and a refined itinerary with expert coordination.",
+          highlights:["Sunrise drives","Comfort stays","All logistics"]
+        },
+        {
+          id:"diani-4d-hm",
+          name:"Diani Coast Honeymoon Retreat",
+          dest:"diani",
+          destLabel:"Diani",
+          durationDays:4,
+          style:"honeymoon",
+          styleLabel:"Honeymoon",
+          price:210000,
+          popular: 92,
+          img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=75",
+          desc:"Beachfront comfort, curated activities, and premium planning for couples.",
+          highlights:["Resort stay","Romantic add-ons","Transfers"]
+        },
+        {
+          id:"nairobi-1d",
+          name:"Nairobi Signature Day Tour",
+          dest:"nairobi",
+          destLabel:"Nairobi",
+          durationDays:1,
+          style:"family",
+          styleLabel:"Family",
+          price:55000,
+          popular: 86,
+          img:"https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&w=1600&q=75",
+          desc:"Curated city highlights with smooth timing, comfort, and premium support.",
+          highlights:["Private transfer","Flexible stops","Fast booking"]
+        },
+        {
+          id:"zanzibar-4d",
+          name:"Zanzibar Premium Island Escape",
+          dest:"zanzibar",
+          destLabel:"Zanzibar",
+          durationDays:4,
+          style:"luxury",
+          styleLabel:"Luxury",
+          price:320000,
+          popular: 88,
+          img:"https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=75",
+          desc:"Island luxury and culture with clean coordination, transfers, and premium add-ons.",
+          highlights:["Island stays","Private transfers","Add-on tours"]
+        }
+      ];
+
+      // ===== STATE =====
+      let state = {
+        dest: "all",
+        duration: "all",
+        budget: 250000,
+        style: "all",
+        sort: "popular",
+        saved: new Set()
+      };
+
+      // load saved from localStorage
+      try {
+        const stored = localStorage.getItem("njeru_saved");
+        if (stored) {
+          state.saved = new Set(JSON.parse(stored));
+        }
+      } catch (e) {
+        console.warn("Failed to load saved tours", e);
+      }
+
+      // ===== DOM ELEMENTS =====
+      const panel = document.getElementById("filterPanel");
+      const destSelect = document.getElementById("dest");
+      const durationSelect = document.getElementById("duration");
+      const budgetInput = document.getElementById("budget");
+      const budgetOut = document.getElementById("budgetOut");
+      const stylePills = document.querySelectorAll(".style-pill");
+      const sortSelect = document.getElementById("sort");
+      const applyBtn = document.getElementById("applyBtn");
+      const clearBtn = document.getElementById("clearBtn");
+      const countSpan = document.getElementById("count");
+      const countMobile = document.getElementById("countMobile");
+      const gridContainer = document.getElementById("gridContainer");
+      const openFiltersBtn = document.getElementById("openFilters");
+      const filtersModal = document.getElementById("filtersModal");
+      const filtersBackdrop = document.getElementById("filtersBackdrop");
+      const closeFilters = document.getElementById("closeFilters");
+      const filtersModalBody = document.getElementById("filtersModalBody");
+
+      // modal elements
+      const modal = document.getElementById("modal");
+      const modalBackdrop = document.getElementById("modalBackdrop");
+      const closeModalBtn = document.getElementById("closeModal");
+      const mTitle = document.getElementById("mTitle");
+      const mImg = document.getElementById("mImg");
+      const mStyle = document.getElementById("mStyle");
+      const mMeta = document.getElementById("mMeta");
+      const mName = document.getElementById("mName");
+      const mDesc = document.getElementById("mDesc");
+      const mChips = document.getElementById("mChips");
+      const mQuote = document.getElementById("mQuote");
+      const mSave = document.getElementById("mSave");
+
+      // ===== HELPER FUNCTIONS =====
+      const money = (n) => "KES " + n.toLocaleString();
+      const durLabel = (d) => d === 1 ? "1 Day" : `${d} Days`;
+
+      // save to localStorage
+      function persistSaved() {
+        try {
+          localStorage.setItem("njeru_saved", JSON.stringify([...state.saved]));
+        } catch (e) {}
+      }
+
+      // toggle save status
+      function toggleSave(id) {
+        if (state.saved.has(id)) {
+          state.saved.delete(id);
+        } else {
+          state.saved.add(id);
+        }
+        persistSaved();
+        render(); // re-render grid
+        // if modal is open for this tour, update its button text
+        if (currentModalId === id) {
+          updateModalSaveButton(id);
+        }
+      }
+
+      // update just the save button in modal
+      function updateModalSaveButton(id) {
+        const saved = state.saved.has(id);
+        mSave.textContent = saved ? "Saved ✓ (Remove)" : "Save to Wishlist";
+      }
+
+      // filter logic
+      function filterTours(list) {
+        return list.filter(t => {
+          if (state.dest !== "all" && t.dest !== state.dest) return false;
+          if (state.duration !== "all") {
+            const d = Number(state.duration);
+            if (d === 4) {
+              if (t.durationDays < 4) return false;
+            } else {
+              if (t.durationDays !== d) return false;
+            }
+          }
+          if (t.price > state.budget) return false;
+          if (state.style !== "all" && t.style !== state.style) return false;
+          return true;
+        });
+      }
+
+      function sortTours(list) {
+        const copy = [...list];
+        switch (state.sort) {
+          case "priceLow": return copy.sort((a,b) => a.price - b.price);
+          case "priceHigh": return copy.sort((a,b) => b.price - a.price);
+          case "durationShort": return copy.sort((a,b) => a.durationDays - b.durationDays);
+          case "durationLong": return copy.sort((a,b) => b.durationDays - a.durationDays);
+          default: return copy.sort((a,b) => b.popular - a.popular);
+        }
+      }
+
+      // sync UI from state (for all filter inputs)
+      function syncUIToState() {
+        destSelect.value = state.dest;
+        durationSelect.value = state.duration;
+        budgetInput.value = state.budget;
+        budgetOut.textContent = `Up to ${state.budget.toLocaleString()}`;
+        sortSelect.value = state.sort;
+        stylePills.forEach(pill => {
+          const checked = pill.dataset.style === state.style;
+          pill.setAttribute("aria-checked", checked);
+        });
+      }
+
+      // read current UI values into state (but do not render yet)
+      function readUItoState() {
+        state.dest = destSelect.value;
+        state.duration = durationSelect.value;
+        state.budget = Number(budgetInput.value);
+        // style is read from pills with aria-checked (but we'll keep it separate)
+        // we already update style via pill click
+        // sort is read separately
+      }
+
+      // apply current state and render
+      function applyAndRender() {
+        readUItoState();
+        state.sort = sortSelect.value; // sort select is outside panel, always read
+        render();
+        closeFiltersModal();
+      }
+
+      // reset filters to default
+      function resetFilters() {
+        state.dest = "all";
+        state.duration = "all";
+        state.budget = 250000;
+        state.style = "all";
+        state.sort = "popular"; // also reset sort
+        syncUIToState();
+        render();
+      }
+
+      // ===== RENDER GRID =====
+      function render() {
+        const filtered = sortTours(filterTours(TOURS));
+        const countText = `${filtered.length} tour${filtered.length===1?"":"s"} available`;
+        countSpan.textContent = countText;
+        if (countMobile) countMobile.textContent = countText;
+
+        if (filtered.length === 0) {
+          gridContainer.innerHTML = `
+            <div class="empty-state">
+              <p>No tours match your filters.</p>
+              <button class="btn ghost" id="clearFiltersEmpty">Clear all filters</button>
+            </div>
+          `;
+          const clearEmpty = document.getElementById("clearFiltersEmpty");
+          if (clearEmpty) {
+            clearEmpty.addEventListener("click", resetFilters);
+          }
+          return;
+        }
+
+        gridContainer.innerHTML = `
+          <div class="grid">
+            ${filtered.map(t => {
+              const saved = state.saved.has(t.id);
+              return `
+                <article class="card" data-id="${t.id}">
+                  <div class="media">
+                    <img src="${t.img}" alt="${t.name}" loading="lazy">
+                    <button class="save ${saved ? "active":""}" type="button" data-save="${t.id}" aria-pressed="${saved}" aria-label="${saved ? "Remove from saved" : "Save tour"}">
+                      <span aria-hidden="true">${saved ? "★" : "☆"}</span>
+                      <span class="sr-only">${saved ? "Remove from saved" : "Save tour"}</span>
+                    </button>
+                  </div>
+                  <div class="body">
+                    <div class="kicker">
+                      <span class="tag">${t.styleLabel}</span>
+                      <span class="meta">${durLabel(t.durationDays)} • ${t.destLabel}</span>
+                    </div>
+                    <h3 class="title">${t.name}</h3>
+                    <p class="desc">${t.desc}</p>
+
+                    <div class="chips">
+                      <span class="chip">${money(t.price)}</span>
+                      ${t.highlights.slice(0,2).map(h => `<span class="chip">${h}</span>`).join("")}
+                    </div>
+
+                    <div class="actions">
+                      <button class="btn btn-primary" type="button" data-open="${t.id}">View Details</button>
+                      <a class="btn btn-gold" href="https://wa.me/254722933305?text=${encodeURIComponent(`Hi Njeru Tours & Travels, I’d like a quote for: ${t.name}.`)}" target="_blank" rel="noopener">Request Quote</a>
+                    </div>
+                  </div>
+                </article>
+              `;
+            }).join("")}
+          </div>
+        `;
+
+        // attach event listeners to new buttons
+        document.querySelectorAll("[data-save]").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleSave(btn.dataset.save);
+          });
+        });
+        document.querySelectorAll("[data-open]").forEach(btn => {
+          btn.addEventListener("click", () => {
+            openModal(btn.dataset.open);
+          });
+        });
+      }
+
+      // ===== MODAL =====
+      let currentModalId = null;
+
+      function openModal(id) {
+        const tour = TOURS.find(t => t.id === id);
+        if (!tour) return;
+
+        currentModalId = id;
+        mTitle.textContent = "Tour Details";
+        mImg.src = tour.img;
+        mImg.alt = tour.name;
+        mStyle.textContent = tour.styleLabel;
+        mMeta.textContent = `${durLabel(tour.durationDays)} • ${tour.destLabel} • ${money(tour.price)}`;
+        mName.textContent = tour.name;
+        mDesc.textContent = tour.desc;
+        mChips.innerHTML = tour.highlights.map(h => `<span class="chip">${h}</span>`).join("");
+        mQuote.href = `https://wa.me/254722933305?text=${encodeURIComponent(`Hi Njeru Tours & Travels, I’d like a quote for: ${tour.name}.`)}`;
+
+        const saved = state.saved.has(id);
+        mSave.textContent = saved ? "Saved ✓ (Remove)" : "Save to Wishlist";
+        // remove old listener and attach new one
+        mSave.onclick = () => {
+          toggleSave(id);
+          // toggleSave triggers render, which will update the grid, and we update modal button via updateModalSaveButton called inside toggleSave
+        };
+
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight = "var(--scrollbar-width)";
+      }
+
+      function closeModal() {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+        currentModalId = null;
+      }
+
+      // ===== MOBILE FILTER MODAL (panel moving) =====
+      function openFiltersModal() {
+        // move panel into modal body
+        if (panel && panel.parentElement) {
+          // detach panel from sidebar and append to modal body
+          document.getElementById("filtersModalBody").appendChild(panel);
+          panel.classList.remove("stuck"); // remove sticky positioning inside modal
+        }
+        filtersModal.classList.add("open");
+        filtersModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight = "var(--scrollbar-width)";
+      }
+
+      function closeFiltersModal() {
+        // move panel back to sidebar
+        const sidebar = document.querySelector(".layout > aside");
+        if (sidebar && panel) {
+          sidebar.replaceWith(panel); // replace the empty placeholder? Actually we need to put it back.
+          // The original sidebar is still in the layout (the <aside> element was removed but its placeholder? We have to reinsert.
+          // Better: store a reference to the parent placeholder.
+          // Let's do: we know the layout, we can insert panel before the results section.
+          const layout = document.querySelector(".layout");
+          const resultsSection = document.querySelector(".layout > section");
+          if (layout && resultsSection) {
+            layout.insertBefore(panel, resultsSection);
+          }
+          panel.classList.add("stuck");
+        }
+        filtersModal.classList.remove("open");
+        filtersModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+      }
+
+      // ===== EVENT LISTENERS =====
+      // budget live update
+      budgetInput.addEventListener("input", () => {
+        budgetOut.textContent = `Up to ${Number(budgetInput.value).toLocaleString()}`;
+      });
+
+      // style pills as radio buttons
+      stylePills.forEach(pill => {
+        pill.addEventListener("click", () => {
+          if (pill.getAttribute("aria-checked") === "true") return; // already selected
+          // uncheck others
+          stylePills.forEach(p => p.setAttribute("aria-checked", "false"));
+          pill.setAttribute("aria-checked", "true");
+          state.style = pill.dataset.style;
+          // optionally apply immediately? We'll wait for Apply button.
+        });
+
+        // keyboard arrow navigation (optional)
+        pill.addEventListener("keydown", (e) => {
+          const pills = Array.from(stylePills);
+          const idx = pills.indexOf(pill);
+          if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+            e.preventDefault();
+            const next = pills[idx + 1] || pills[0];
+            next.focus();
+          } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+            e.preventDefault();
+            const prev = pills[idx - 1] || pills[pills.length - 1];
+            prev.focus();
+          }
+        });
+      });
+
+      // apply button
+      applyBtn.addEventListener("click", applyAndRender);
+
+      // clear button
+      clearBtn.addEventListener("click", resetFilters);
+
+      // sort change
+      sortSelect.addEventListener("change", () => {
+        state.sort = sortSelect.value;
+        render();
+      });
+
+      // modal close
+      modalBackdrop.addEventListener("click", closeModal);
+      closeModalBtn.addEventListener("click", closeModal);
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+        if (e.key === "Escape" && filtersModal.classList.contains("open")) closeFiltersModal();
+      });
+
+      // mobile open filters
+      if (openFiltersBtn) {
+        openFiltersBtn.addEventListener("click", openFiltersModal);
+      }
+      filtersBackdrop.addEventListener("click", closeFiltersModal);
+      closeFilters.addEventListener("click", closeFiltersModal);
+
+      // ===== SCROLLBAR WIDTH COMPENSATION =====
+      function getScrollbarWidth() {
+        const outer = document.createElement("div");
+        outer.style.visibility = "hidden";
+        outer.style.overflow = "scroll";
+        document.body.appendChild(outer);
+        const inner = document.createElement("div");
+        outer.appendChild(inner);
+        const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
+        outer.parentNode.removeChild(outer);
+        return scrollbarWidth;
+      }
+      document.documentElement.style.setProperty("--scrollbar-width", getScrollbarWidth() + "px");
+
+      // ===== INIT =====
+      document.getElementById("year").textContent = new Date().getFullYear();
+      syncUIToState();
+      render();
+    })();
+  </script>
+</body>
+</html>

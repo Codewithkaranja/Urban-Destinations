@@ -1,0 +1,117 @@
+<!-- ===================== blog.html (Index / Hub) ===================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Guides & Blog | Njeru Tours & Travels</title>
+
+  <!-- Primary SEO -->
+  <meta name="description" content="Premium travel guides for Kenya & East Africa — safari tips, packing lists, best time to visit, itineraries, costs, and expert planning advice by Njeru Tours & Travels." />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <link rel="canonical" href="https://njerutours.co.ke/blog.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Travel Guides & Blog | Njeru Tours & Travels" />
+  <meta property="og:description" content="Safari guides, travel tips, packing lists, best time to visit, itineraries and planning advice for Kenya & beyond." />
+  <meta property="og:type" content="website" />
+
+  <!-- Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="bar">
+      <a class="brand" href="index.html" aria-label="Njeru Tours & Travels">
+        <span class="mark" aria-hidden="true"></span>
+        <span>
+          Njeru Tours &amp; Travels
+          <small>Premium journeys • East Africa</small>
+        </span>
+      </a>
+
+      <div class="navlinks" aria-label="Primary navigation">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="tours.html">Tours</a>
+        <a class="pill" href="tours-details.html">Tour Details</a>
+        <a class="pill" href="destinations.html">Destinations</a>
+        <a class="pill" href="about.html">About</a>
+        <a class="pill" href="blog.html">Blog</a>
+        <a class="cta" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp Concierge</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="container content">
+      <span class="eyebrow"><span class="dot"></span> SEO Travel Guides</span>
+      <h1>Blog &amp; Travel Guides</h1>
+      <p class="sub">
+        Practical, experience-based guides to help you plan with confidence: safari tips, packing checklists,
+        budgets, itineraries and the best time to visit Kenya &amp; beyond.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="panel">
+        <div class="tools">
+          <div class="search" role="search">
+            <input id="q" type="search" placeholder="Search guides… e.g. 'Maasai Mara packing' or 'best time to visit'" aria-label="Search blog posts">
+          </div>
+          <select id="cat" class="select" aria-label="Filter by category">
+            <option value="all">All topics</option>
+            <option value="safari">Safari Guides</option>
+            <option value="planning">Planning & Costs</option>
+            <option value="packing">Packing Lists</option>
+            <option value="seasons">Best Time to Visit</option>
+          </select>
+        </div>
+
+        <div class="grid" id="posts"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footgrid">
+        <div class="footbrand">
+          <span class="mark" aria-hidden="true"></span>
+          <div>
+            <h3>Njeru Tours &amp; Travels</h3>
+            <p>Premium, well-planned journeys across Kenya and beyond — designed with care, clarity, and concierge-level support.</p>
+          </div>
+        </div>
+
+        <div class="footcol">
+          <h4>Contact</h4>
+          <a href="tel:+254722933305">Call: +254 722 933305</a>
+          <a href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp: +254 722 933305</a>
+        </div>
+
+        <div class="footcol">
+          <h4>Location</h4>
+          <span>Machakos (Opp. Machakos County Government HQs)</span>
+          <span>Kyumvi–Machakos Road</span>
+        </div>
+      </div>
+
+      <div class="footbar">
+        <span>© <span id="year"></span> Njeru Tours &amp; Travels. All rights reserved.</span>
+        <span class="credit">Developed by <a href="https://sarahadevelopers.co.ke" target="_blank" rel="noopener">sarahadevelopers.co.ke</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="blog.js"></script>
+</body>
+</html>
