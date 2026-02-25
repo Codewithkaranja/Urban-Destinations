@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 <link rel="stylesheet" href="about.css">
@@ -17,27 +17,60 @@
 
 <body>
   <!-- NAV -->
-  <div class="nav">
-    <div class="bar">
-      <a class="brand" href="index.html" aria-label="Njeru Tours & Travels">
-        <span class="mark" aria-hidden="true"></span>
-        <span>
-          Njeru Tours &amp; Travels
-          <small>Premium journeys • East Africa</small>
-        </span>
-      </a>
+  <div class="nav" id="top">
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="Njeru Tours & Travels Home">
+      <!-- Logo provision (replace src later) -->
+      <span class="logo-wrap" aria-hidden="true">
+        <!-- If you don’t have a logo yet, keep it hidden and use the mark -->
+        <img class="logo-img" src="assets/logo.png" alt="" loading="lazy" />
+        <span class="mark"></span>
+      </span>
 
-      <div class="navlinks" aria-label="Primary navigation">
-        <a class="pill" href="index.html">Home</a>
-        <a class="pill" href="tours.html">Tours</a>
-        <a class="pill" href="tours-details.html">Tour Details</a>
-        <a class="pill" href="destinations.html">Destinations</a>
-        <a class="pill" href="about.html">About</a>
-        <a class="pill" href="blog.html">Blog</a>
-        <a class="cta" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp Concierge</a>
+      <span class="brand-text">
+        Njeru Tours &amp; Travels
+        <small>Premium journeys • East Africa</small>
+      </span>
+    </a>
+
+    <!-- Desktop links -->
+    <nav class="navlinks" aria-label="Primary navigation">
+      <a class="pill" href="index.html">Home</a>
+      <a class="pill" href="tours.html">Our Packages</a>
+      <a class="pill" href="destinations.html">Destinations</a>
+      <a class="pill" href="about.html">About</a>
+      <a class="pill" href="blog.html">Travel Insights</a>
+      <a class="pill" href="contact.html">Contact</a>
+      <a class="cta" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp Concierge</a>
+    </nav>
+
+    <!-- Mobile toggle -->
+    <button class="menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+      <span class="menu-ico" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Mobile panel -->
+  <div class="mobilePanel" id="mobilePanel" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <div class="mobileCard">
+      <div class="mobileTop">
+        <span class="mobileTitle">Menu</span>
+        <a class="miniCta" href="https://wa.me/254722933305" target="_blank" rel="noopener">
+          WhatsApp Concierge
+        </a>
+      </div>
+
+      <div class="mobileLinks">
+        <a href="index.html">Home</a>
+        <a href="tours.html">Our Packages</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Travel Insights</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </div>
+</div>
 
   <!-- HERO -->
   <header class="hero">
@@ -130,7 +163,7 @@
           <article class="team-card">
             <div class="team-inner">
               <div class="avatar" aria-hidden="true"></div>
-              <div class="role">Trip Concierge</div>
+              <div class="role" style="color:rgba(255,224,120,.82) ;">Trip Concierge</div>
               <div class="t-name">Reservations &amp; Planning</div>
               <div class="small">Handles quotes, itineraries, hotel options, and timing — ensuring the plan is clean and realistic.</div>
               <div class="meta-row">
@@ -143,7 +176,7 @@
           <article class="team-card">
             <div class="team-inner">
               <div class="avatar" aria-hidden="true"></div>
-              <div class="role">Field Coordinator</div>
+              <div class="role" style="color:rgba(255,224,120,.82) ;">Field Coordinator</div>
               <div class="t-name">On-ground Support</div>
               <div class="small">Coordinates pickups, check-ins, park logistics, and quick adjustments when needed.</div>
               <div class="meta-row">
@@ -156,7 +189,7 @@
           <article class="team-card">
             <div class="team-inner">
               <div class="avatar" aria-hidden="true"></div>
-              <div class="role">Driver-Guide Network</div>
+              <div class="role" style="color:rgba(255,224,120,.82) ;">Driver-Guide Network</div>
               <div class="t-name">Experienced &amp; Courteous</div>
               <div class="small">Professional drivers and guides — knowledgeable routes, calm driving, and respectful guest experience.</div>
               <div class="meta-row">
@@ -235,7 +268,7 @@
       <section class="section" id="reviews">
         <div class="reviews-head">
           <div>
-            <h2 style="margin:0;font-size:clamp(1.35rem,2.3vw,2rem);letter-spacing:-.3px">Reviews &amp; testimonials</h2>
+            <h2 style="margin:0;font-size:clamp(1.35rem,2.3vw,2rem);letter-spacing:-.3px;color:rgba(255,224,120,.82) ;font-weight:500">Reviews &amp; testimonials</h2>
             <p style="margin:6px 0 0;color:var(--muted);max-width:72ch;line-height:1.55">
               Social proof that feels familiar — Google-style review cards with star ratings, and optional video review links.
             </p>
@@ -254,8 +287,7 @@
           <div class="swiper-wrapper" id="tSlides"></div>
 
           <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev" aria-label="Previous testimonial"></div>
-          <div class="swiper-button-next" aria-label="Next testimonial"></div>
+          
         </div>
 
         <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
@@ -269,36 +301,122 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footgrid">
-        <div class="footbrand">
-          <span class="mark" aria-hidden="true"></span>
+  <!-- FOOTER -->
+<footer class="elite-footer">
+  <div class="container">
+
+    <!-- Top glow line -->
+    <div class="elite-topline" aria-hidden="true"></div>
+
+    <div class="elite-grid">
+
+      <!-- Brand / About -->
+      <div class="elite-brand">
+        <div class="elite-brand-head">
+          <span class="elite-mark" aria-hidden="true"></span>
           <div>
             <h3>Njeru Tours &amp; Travels</h3>
-            <p>Premium, well-planned journeys across Kenya and beyond — designed with care, clarity, and concierge-level support.</p>
+            <p>
+              Luxury-curated journeys across Kenya &amp; beyond — crafted with precision,
+              comfort, and concierge-level support from inquiry to arrival.
+            </p>
           </div>
         </div>
 
-        <div class="footcol">
-          <h4>Contact</h4>
-          <a href="tel:+254722933305">Call: +254 722 933305</a>
-          <a href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp: +254 722 933305</a>
+        <!-- Trust badges -->
+        <div class="elite-badges">
+          <span class="badge"><i class="fa-solid fa-shield-heart"></i> Trusted &amp; Secure</span>
+          <span class="badge"><i class="fa-solid fa-star"></i> Top-Rated Experiences</span>
+          <span class="badge"><i class="fa-solid fa-headset"></i> 24/7 Support</span>
         </div>
 
-        <div class="footcol">
-          <h4>Location</h4>
-          <span>Machakos (Opp. Machakos County Government HQs)</span>
-          <span>Kyumvi–Machakos Road</span>
+        <!-- Social -->
+        <div class="elite-social">
+          <a href="#" aria-label="Facebook" class="soc"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram" class="soc"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok" class="soc"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="YouTube" class="soc"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <!-- Newsletter -->
+        <form class="elite-newsletter" action="#" method="POST">
+          <input type="email" name="email" required placeholder="Get travel deals & insider tips" />
+          <button type="submit" class="elite-btn">
+            <i class="fa-solid fa-paper-plane"></i> Subscribe
+          </button>
+        </form>
+
+        <small class="elite-note">
+          By subscribing, you agree to receive occasional updates. No spam — unsubscribe anytime.
+        </small>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="elite-col">
+        <h4>Quick Links</h4>
+        <a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a>
+        <a href="tours.html"><i class="fa-solid fa-chevron-right"></i> Tours</a>
+        <a href="destinations.html"><i class="fa-solid fa-chevron-right"></i> Destinations</a>
+        <a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Travel Guides</a>
+        <a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+      </div>
+
+      <!-- Contact -->
+      <div class="elite-col">
+        <h4>Contact</h4>
+        <a href="tel:+254722933305"><i class="fa-solid fa-phone"></i> +254 722 933305</a>
+        <a href="https://wa.me/254722933305" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Chat
+        </a>
+        <a href="mailto:info@njerutours.com"><i class="fa-solid fa-envelope"></i> info@njerutours.com</a>
+
+        <div class="elite-hours">
+          <span class="label"><i class="fa-regular fa-clock"></i> Office Hours</span>
+          <span>Mon–Sat: 8:00 AM – 6:00 PM</span>
+          <span>Sunday: By appointment</span>
         </div>
       </div>
 
-      <div class="footbar">
-        <span>© <span id="year"></span> Njeru Tours &amp; Travels. All rights reserved.</span>
-        <span class="credit">Developed by <a href="https://sarahadevelopers.co.ke" target="_blank" rel="noopener">sarahadevelopers.co.ke</a></span>
+      <!-- Location -->
+      <div class="elite-col">
+        <h4>Our Office</h4>
+        <div class="elite-location">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>
+            Ground Floor, Umoja House (opp. County Hq),<br />
+            Ngei Road, Machakos Town.
+          </span>
+        </div>
+
+        <a class="elite-map" href="https://share.google/QzIdgRkZaR3sJlo91" target="_blank" rel="noopener">
+          <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
+        </a>
+
+        <div class="elite-cta">
+          <a class="elite-btn outline" href="contact.html">
+            <i class="fa-solid fa-calendar-check"></i> Plan My Trip
+          </a>
+          <a class="elite-btn" href="tours.html">
+            <i class="fa-solid fa-compass"></i> Explore Tours
+          </a>
+        </div>
       </div>
+
     </div>
-  </footer>
+
+    <!-- Bottom bar -->
+    <div class="elite-bar">
+      <span>© <span id="year"></span> Njeru Tours &amp; Travels. All rights reserved.</span>
+
+      <span class="elite-dev">
+        Designed &amp; Developed By
+        <a href="https://sarahadevelopers.co.ke" target="_blank" rel="noopener">Saraha Developers</a>
+      </span>
+    </div>
+
+  </div>
+</footer>
+
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
