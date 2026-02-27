@@ -3,175 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Njeru Tours & Travels | Premium Tours</title>
+  <title>Urban DESTINATIONS | Premium Tours</title>
 
   <!-- Font (Jost) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
- <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
   <!-- NAV -->
- <!-- NAV -->
-<div class="nav" id="top">
-  <div class="bar">
-    <a class="brand" href="index.html" aria-label="Njeru Tours & Travels Home">
-      <!-- Logo provision (replace src later) -->
-      <span class="logo-wrap" aria-hidden="true">
-        <!-- If you don’t have a logo yet, keep it hidden and use the mark -->
-        <img class="logo-img" src="assets/logo.png" alt="" loading="lazy" />
-        <span class="mark"></span>
-      </span>
+  <div class="nav" id="top">
+    <div class="bar">
+      <a class="brand" href="index.html" aria-label="Urban DESTINATIONS Home">
+        <span >
+          <img class="logo-img" src="Urban-Destination-favicon.png" alt="Urban Destinations Logo" />
+        </span>
+      </a>
 
-      <span class="brand-text">
-        Njeru Tours &amp; Travels
-        <small>Premium journeys • East Africa</small>
-      </span>
-    </a>
+      <!-- Desktop links -->
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="tours.html">Our Packages</a>
+        <a class="pill" href="destinations.html">Destinations</a>
+        <a class="pill" href="about.html">About</a>
+        <a class="pill" href="blog.html">Travel Insights</a>
+        <a class="pill" href="contact.html">Contact</a>
+        <a class="cta" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp Concierge</a>
+      </nav>
 
-    <!-- Desktop links -->
-    <nav class="navlinks" aria-label="Primary navigation">
-      <a class="pill" href="index.html">Home</a>
-      <a class="pill" href="tours.html">Our Packages</a>
-      <a class="pill" href="destinations.html">Destinations</a>
-      <a class="pill" href="about.html">About</a>
-      <a class="pill" href="blog.html">Travel Insights</a>
-      <a class="pill" href="contact.html">Contact</a>
-      <a class="cta" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp Concierge</a>
-    </nav>
+      <!-- Mobile toggle -->
+      <button class="menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+        <span class="menu-ico" aria-hidden="true"></span>
+      </button>
+    </div>
 
-    <!-- Mobile toggle -->
-    <button class="menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
-      <span class="menu-ico" aria-hidden="true"></span>
-    </button>
-  </div>
+    <!-- Mobile panel -->
+    <div class="mobilePanel" id="mobilePanel" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+      <div class="mobileCard">
+        <div class="mobileTop">
+          <span class="mobileTitle">Menu</span>
+          <a class="miniCta" href="https://wa.me/254722933305" target="_blank" rel="noopener">
+            WhatsApp Concierge
+          </a>
+        </div>
 
-  <!-- Mobile panel -->
-  <div class="mobilePanel" id="mobilePanel" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-    <div class="mobileCard">
-      <div class="mobileTop">
-        <span class="mobileTitle">Menu</span>
-        <a class="miniCta" href="https://wa.me/254722933305" target="_blank" rel="noopener">
-          WhatsApp Concierge
-        </a>
-      </div>
-
-      <div class="mobileLinks">
-        <a href="index.html">Home</a>
-        <a href="tours.html">Our Packages</a>
-        <a href="destinations.html">Destinations</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Travel Insights</a>
-        <a href="contact.html">Contact</a>
+        <div class="mobileLinks">
+          <a href="index.html">Home</a>
+          <a href="tours.html">Our Packages</a>
+          <a href="destinations.html">Destinations</a>
+          <a href="about.html">About</a>
+          <a href="blog.html">Travel Insights</a>
+          <a href="contact.html">Contact</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <!-- HERO -->
- <!-- HERO (Elite + Minimal + Video Background + Rotator) -->
-<!-- PARALLAX LUXURY HERO (Video + Layered Parallax + True Typewriter) -->
-<header id="top" class="hero hero-parallax">
-  <!-- Background video -->
-  <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-    poster="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=2200&q=75"
-  >
-    <source src="https://assets.mixkit.co/videos/3680/3680-720.mp4" type="video/mp4" />
-  </video>
+  <header id="top" class="hero hero-parallax">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=2200&q=75"
+    >
+      <source src="https://assets.mixkit.co/videos/3680/3680-720.mp4" type="video/mp4" />
+    </video>
 
-  <!-- Parallax layers -->
-  <div class="hero-layer hero-overlay" data-depth="0.15" aria-hidden="true"></div>
-  <div class="hero-layer hero-grain" data-depth="0.30" aria-hidden="true"></div>
-  <div class="hero-layer hero-glow" data-depth="0.22" aria-hidden="true"></div>
+    <div class="hero-layer hero-overlay" data-depth="0.15" aria-hidden="true"></div>
+    <div class="hero-layer hero-grain" data-depth="0.30" aria-hidden="true"></div>
+    <div class="hero-layer hero-glow" data-depth="0.22" aria-hidden="true"></div>
 
-  <div class="container">
-    <div class="hero-inner hero-layer" data-depth="0.55">
-      <div class="hero-trust">
-        <span><i class="fa-solid fa-shield-heart"></i> Trusted partners</span>
-        <span><i class="fa-solid fa-star"></i> Premium experiences</span>
-      </div>
+    <div class="container">
+      <div class="hero-inner hero-layer" data-depth="0.55">
+        <div class="hero-trust">
+          <span><i class="fa-solid fa-shield-heart"></i> Trusted partners</span>
+          <span><i class="fa-solid fa-star"></i> Premium experiences</span>
+        </div>
 
-      <h1>
-        <span class="accent">Luxury travel,</span> <span>redefined.</span>
-      </h1>
+        <h1 class="hero-title">
+          <span class="accent"> Travel</span> <span>redefined.</span>
+        </h1>
 
-      <!-- True typewriter -->
-      <p class="hero-rotator" aria-label="Company motto">
-        <!--  <span class="rotator-prefix">Curated for</span>-->
-        <span class="rotator-word-wrap">
-          <span id="typed-word" class="rotator-word"></span>
-          <span class="cursor" aria-hidden="true"></span>
-        </span>
-      </p>
+        <p class="hero-rotator" aria-label="Company motto">
+          <span class="rotator-word-wrap">
+            <span id="typed-word" class="rotator-word"></span>
+            <span class="cursor" aria-hidden="true"></span>
+          </span>
+        </p>
 
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="tours.html">
-          <i class="fa-solid fa-compass"></i> Explore Packages
-        </a>
-        <a class="btn btn-gold" href="https://wa.me/254722933305" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i> Plan on WhatsApp
-        </a>
-        <a class="btn" href="#destinations">
-          <i class="fa-solid fa-arrow-down"></i> View Destinations
-        </a>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tours.html">
+            <i class="fa-solid fa-compass"></i> Explore Packages
+          </a>
+          <a class="btn btn-gold" href="https://wa.me/254722933305" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> Plan on WhatsApp
+          </a>
+          <a class="btn" href="#destinations">
+            <i class="fa-solid fa-arrow-down"></i> View Destinations
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</header>
-   <!--  <aside class="hero-panel" aria-label="Quick contact card">
-          <div class="top">
-            <div>
-              <h3>Concierge Support</h3>
-              <p>Fast quotes for custom trips, safaris &amp; group travel.</p>
-            </div>
-            <span class="badge">Machakos</span>
-          </div>
-
-          <div style="padding: 0 18px 18px;">
-            <div style="display:grid; gap:10px; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18);">
-              <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-                <span style="color:rgba(245,248,248,.72); font-weight:800;">Calls / WhatsApp</span>
-                <strong style="font-weight:1000;">+254 722 933305</strong>
-              </div>
-              <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-                <span style="color:rgba(245,248,248,.72); font-weight:800;">Location</span>
-                <strong style="font-weight:900; text-align:right;">
-                  Opp. Machakos County Govt HQs<br/>
-                  Kyumvi–Machakos Road
-                </strong>
-              </div>
-
-              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 2px;">
-                <a class="btn btn-primary" style="flex:1;" href="https://wa.me/254722933305" target="_blank" rel="noopener">WhatsApp</a>
-                <a class="btn" style="flex:1;" href="tel:+254722933305">Call Now</a>
-              </div>
-            </div>
-          </div>
-        </aside>-->
+  </header>
 
   <!-- FEATURED TOURS -->
-  <section id="packages">
+  <section id="packages" class="packages">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Featured Packages</h2>
-          <p>Here are our most popular travel packages tailored for unforgettable experiences.</p>
+          <h2 class="packages-title">Featured Packages</h2>
+          <p class="packages-sub">Here are our most popular travel packages tailored for unforgettable experiences.</p>
         </div>
       </div>
 
-      <div class="swiper" aria-label="Package slider">
+      <div class="swiper packages-swiper" aria-label="Package slider">
         <div class="swiper-wrapper">
 
           <!-- 1 -->
@@ -193,7 +150,7 @@
                   <span class="chip">Transfers</span>
                 </div>
                 <div class="tour-actions">
-                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Njeru%20Tours%20%26%20Travels%2C%20I%27d%20like%20a%20quote%20for%20Maasai%20Mara%20Luxury%20Escape." target="_blank" rel="noopener">Request Quote</a>
+                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Urban%20Destinations%2C%20I%27d%20like%20a%20quote%20for%20Maasai%20Mara%20Luxury%20Escape." target="_blank" rel="noopener">Request Quote</a>
                   <a class="btn" href="tel:+254722933305">Talk to Us</a>
                 </div>
               </div>
@@ -219,7 +176,7 @@
                   <span class="chip">All logistics</span>
                 </div>
                 <div class="tour-actions">
-                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Njeru%20Tours%20%26%20Travels%2C%20please%20share%20pricing%20for%20Amboseli%20Views%20%26%20Elephants." target="_blank" rel="noopener">Get Pricing</a>
+                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Urban%20Destinations%2C%20please%20share%20pricing%20for%20Amboseli%20Views%20%26%20Elephants." target="_blank" rel="noopener">Get Pricing</a>
                   <a class="btn" href="tel:+254722933305">Enquire</a>
                 </div>
               </div>
@@ -245,7 +202,7 @@
                   <span class="chip">Transfers</span>
                 </div>
                 <div class="tour-actions">
-                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Njeru%20Tours%20%26%20Travels%2C%20I%27m%20interested%20in%20Diani%20Coast%20Retreat.%20Please%20advise%20options." target="_blank" rel="noopener">Plan This Trip</a>
+                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Urban%20Destinations%2C%20I%27m%20interested%20in%20Diani%20Coast%20Retreat.%20Please%20advise%20options." target="_blank" rel="noopener">Plan This Trip</a>
                   <a class="btn" href="tel:+254722933305">Talk</a>
                 </div>
               </div>
@@ -271,7 +228,7 @@
                   <span class="chip">Fast booking</span>
                 </div>
                 <div class="tour-actions">
-                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Njeru%20Tours%20%26%20Travels%2C%20I%27d%20like%20to%20book%20Nairobi%20Signature%20Day%20Tour.%20What%20dates%20are%20available%3F" target="_blank" rel="noopener">Book Now</a>
+                  <a class="btn btn-primary" href="https://wa.me/254722933305?text=Hi%20Urban%20Destinations%2C%20I%27d%20like%20to%20book%20Nairobi%20Signature%20Day%20Tour.%20What%20dates%20are%20available%3F" target="_blank" rel="noopener">Book Now</a>
                   <a class="btn" href="tours-details.html">Details</a>
                 </div>
               </div>
@@ -298,108 +255,102 @@
       </div>
 
       <div class="grid dest-grid">
-  <!-- Hero -->
-  <a class="dest is-hero" href="tours.html" aria-label="Maasai Mara">
-    <img src="https://plus.unsplash.com/premium_photo-1661962656908-24102eafa8d4?q=80&w=1490&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Maasai Mara">
-    <div class="inner">
-      <div class="toprow">
-        <span class="badge"><i class="fa-solid fa-crown"></i> Best Seller</span>
-        <span class="meta"><i class="fa-regular fa-calendar"></i> 3–5 Days</span>
-      </div>
-      <p class="name">Maasai Mara</p>
-      <p class="hint">Luxury safaris &amp; Big Five moments</p>
-      <div class="bottomrow">
-        <span class="price">From <strong>KES 48,500</strong></span>
-        <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
-      </div>
-    </div>
-  </a>
+        <a class="dest is-hero" href="tours.html" aria-label="Maasai Mara">
+          <img src="https://plus.unsplash.com/premium_photo-1661962656908-24102eafa8d4?q=80&w=1490&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Maasai Mara">
+          <div class="inner">
+            <div class="toprow">
+              <span class="badge"><i class="fa-solid fa-crown"></i> Best Seller</span>
+              <span class="meta"><i class="fa-regular fa-calendar"></i> 3–5 Days</span>
+            </div>
+            <p class="name">Maasai Mara</p>
+            <p class="hint">Luxury safaris &amp; Big Five moments</p>
+            <div class="bottomrow">
+              <span class="price">From <strong>KES 48,500</strong></span>
+              <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
 
-  <!-- Card 2 -->
-  <a class="dest" href="tours.html" aria-label="Amboseli">
-    <img src="https://plus.unsplash.com/premium_photo-1661897249421-9edb73abf1f1?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Amboseli">
-    <div class="inner">
-      <div class="toprow">
-        <span class="badge soft"><i class="fa-solid fa-mountain-sun"></i> Iconic Views</span>
-        <span class="meta"><i class="fa-regular fa-calendar"></i> 2–4 Days</span>
-      </div>
-      <p class="name">Amboseli</p>
-      <p class="hint">Elephants &amp; Kilimanjaro skies</p>
-      <div class="bottomrow">
-        <span class="price">From <strong>KES 34,900</strong></span>
-        <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
-      </div>
-    </div>
-  </a>
+        <a class="dest" href="tours.html" aria-label="Amboseli">
+          <img src="https://plus.unsplash.com/premium_photo-1661897249421-9edb73abf1f1?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Amboseli">
+          <div class="inner">
+            <div class="toprow">
+              <span class="badge soft"><i class="fa-solid fa-mountain-sun"></i> Iconic Views</span>
+              <span class="meta"><i class="fa-regular fa-calendar"></i> 2–4 Days</span>
+            </div>
+            <p class="name">Amboseli</p>
+            <p class="hint">Elephants &amp; Kilimanjaro skies</p>
+            <div class="bottomrow">
+              <span class="price">From <strong>KES 34,900</strong></span>
+              <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
 
-  <!-- Card 3 -->
-  <a class="dest" href="tours.html" aria-label="Diani Beach">
-    <img src="https://images.unsplash.com/photo-1673262791211-55f7a4e13118?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Diani Beach">
-    <div class="inner">
-      <div class="toprow">
-        <span class="badge soft"><i class="fa-solid fa-umbrella-beach"></i> Honeymoon</span>
-        <span class="meta"><i class="fa-regular fa-calendar"></i> 3–7 Days</span>
-      </div>
-      <p class="name">Diani</p>
-      <p class="hint">Beach retreats &amp; ocean luxury</p>
-      <div class="bottomrow">
-        <span class="price">From <strong>KES 29,500</strong></span>
-        <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
-      </div>
-    </div>
-  </a>
+        <a class="dest" href="tours.html" aria-label="Diani Beach">
+          <img src="https://images.unsplash.com/photo-1673262791211-55f7a4e13118?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Diani Beach">
+          <div class="inner">
+            <div class="toprow">
+              <span class="badge soft"><i class="fa-solid fa-umbrella-beach"></i> Honeymoon</span>
+              <span class="meta"><i class="fa-regular fa-calendar"></i> 3–7 Days</span>
+            </div>
+            <p class="name">Diani</p>
+            <p class="hint">Beach retreats &amp; ocean luxury</p>
+            <div class="bottomrow">
+              <span class="price">From <strong>KES 29,500</strong></span>
+              <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
 
-  <!-- Card 4 -->
-  <a class="dest" href="tours.html" aria-label="Zanzibar">
-    <img src="https://images.unsplash.com/photo-1619088238706-e603ac6df0de?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Zanzibar">
-    <div class="inner">
-      <div class="toprow">
-        <span class="badge soft"><i class="fa-solid fa-wand-magic-sparkles"></i> Island Luxury</span>
-        <span class="meta"><i class="fa-regular fa-calendar"></i> 4–8 Days</span>
-      </div>
-      <p class="name">Zanzibar</p>
-      <p class="hint">Culture, spice tours &amp; white-sand escapes</p>
-      <div class="bottomrow">
-        <span class="price">From <strong>KES 62,000</strong></span>
-        <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
-      </div>
-    </div>
-  </a>
+        <a class="dest" href="tours.html" aria-label="Zanzibar">
+          <img src="https://images.unsplash.com/photo-1619088238706-e603ac6df0de?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Zanzibar">
+          <div class="inner">
+            <div class="toprow">
+              <span class="badge soft"><i class="fa-solid fa-wand-magic-sparkles"></i> Island Luxury</span>
+              <span class="meta"><i class="fa-regular fa-calendar"></i> 4–8 Days</span>
+            </div>
+            <p class="name">Zanzibar</p>
+            <p class="hint">Culture, spice tours &amp; white-sand escapes</p>
+            <div class="bottomrow">
+              <span class="price">From <strong>KES 62,000</strong></span>
+              <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
 
-  <!-- Card 5 -->
-  <a class="dest" href="tours.html" aria-label="Samburu">
-    <img src="https://images.unsplash.com/photo-1682681611078-2ba8a6f6e0fa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Samburu">
-    <div class="inner">
-      <div class="toprow">
-        <span class="badge soft"><i class="fa-solid fa-paw"></i> Rare Species</span>
-        <span class="meta"><i class="fa-regular fa-calendar"></i> 3–5 Days</span>
-      </div>
-      <p class="name">Samburu</p>
-      <p class="hint">Wild north &amp; unforgettable game drives</p>
-      <div class="bottomrow">
-        <span class="price">From <strong>KES 41,900</strong></span>
-        <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
-      </div>
-    </div>
-  </a>
+        <a class="dest" href="tours.html" aria-label="Samburu">
+          <img src="https://images.unsplash.com/photo-1682681611078-2ba8a6f6e0fa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Samburu">
+          <div class="inner">
+            <div class="toprow">
+              <span class="badge soft"><i class="fa-solid fa-paw"></i> Rare Species</span>
+              <span class="meta"><i class="fa-regular fa-calendar"></i> 3–5 Days</span>
+            </div>
+            <p class="name">Samburu</p>
+            <p class="hint">Wild north &amp; unforgettable game drives</p>
+            <div class="bottomrow">
+              <span class="price">From <strong>KES 41,900</strong></span>
+              <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
 
-  <!-- Card 6 -->
-  <a class="dest" href="tours.html" aria-label="Mount Kenya">
-    <img src="https://images.unsplash.com/photo-1646159755791-54e741749028?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mount Kenya">
-    <div class="inner">
-      <div class="toprow">
-        <span class="badge soft"><i class="fa-solid fa-person-hiking"></i> Scenic Escape</span>
-        <span class="meta"><i class="fa-regular fa-calendar"></i> 2–4 Days</span>
+        <a class="dest" href="tours.html" aria-label="Mount Kenya">
+          <img src="https://images.unsplash.com/photo-1646159755791-54e741749028?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mount Kenya">
+          <div class="inner">
+            <div class="toprow">
+              <span class="badge soft"><i class="fa-solid fa-person-hiking"></i> Scenic Escape</span>
+              <span class="meta"><i class="fa-regular fa-calendar"></i> 2–4 Days</span>
+            </div>
+            <p class="name">Mount Kenya</p>
+            <p class="hint">Hikes, forest lodges &amp; cool highland air</p>
+            <div class="bottomrow">
+              <span class="price">From <strong>KES 24,500</strong></span>
+              <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
       </div>
-      <p class="name">Mount Kenya</p>
-      <p class="hint">Hikes, forest lodges &amp; cool highland air</p>
-      <div class="bottomrow">
-        <span class="price">From <strong>KES 24,500</strong></span>
-        <span class="cta">Explore <i class="fa-solid fa-arrow-right"></i></span>
-      </div>
-    </div>
-  </a>
-</div>
     </div>
   </section>
 
@@ -410,7 +361,7 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Why Choose Njeru Tours?</h2>
+          <h2>Why Choose Urban Destinations?</h2>
           <p>Premium planning, trusted logistics, and a smooth experience — from first message to arrival.</p>
         </div>
       </div>
@@ -446,179 +397,177 @@
   <div class="divider"></div>
 
   <!-- TESTIMONIALS -->
- <section id="testimonials" class="testimonials">
-  <div class="container">
-    <div class="section-head t-head">
-      <div>
-        <span class="eyebrow"><span class="dot"></span> Social Proof</span>
-        <h2>What Travelers Say</h2>
-        <p>Premium service is measured by experience — here’s what clients love.</p>
-      </div>
-
-      <!-- Rating Summary (Google-like) -->
-      <div class="rating-summary" aria-label="Google rating summary">
-        <div class="g-badge">
-          <i class="fa-brands fa-google"></i>
-          <span>Google Reviews</span>
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="section-head t-head">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Social Proof</span>
+          <h2>What Travelers Say</h2>
+          <p>Premium service is measured by experience — here’s what clients love.</p>
         </div>
-        <div class="score">
-          <span class="num">4.9</span>
-          <span class="stars" aria-hidden="true">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </span>
-        </div>
-        <span class="count">Based on 120+ trips</span>
-      </div>
-    </div>
 
-    <!-- Swiper -->
-    <div class="swiper t-swiper">
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide">
-          <article class="tcard gcard">
-            <div class="t-top">
-              <div class="avatar" aria-hidden="true">MN</div>
-              <div class="meta">
-                <strong>Mary N.</strong>
-                <span class="sub">Diani Retreat</span>
-              </div>
-              <span class="chip"><i class="fa-solid fa-circle-check"></i> Verified</span>
-            </div>
-
-            <div class="g-stars" aria-label="5 out of 5 stars">
+        <div class="rating-summary" aria-label="Google rating summary">
+          <div class="g-badge">
+            <i class="fa-brands fa-google"></i>
+            <span>Google Reviews</span>
+          </div>
+          <div class="score">
+            <span class="num">4.9</span>
+            <span class="stars" aria-hidden="true">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-
-            <p class="quote">
-              Everything was smooth — from booking to hotel check-in. The itinerary was well planned and the communication was top-tier.
-            </p>
-
-            <div class="t-foot">
-              <span class="time"><i class="fa-regular fa-clock"></i> 2 weeks ago</span>
-              <span class="source"><i class="fa-brands fa-google"></i> Google</span>
-            </div>
-          </article>
+            </span>
+          </div>
+          <span class="count">Based on 1000+ trips</span>
         </div>
+      </div>
 
-        <div class="swiper-slide">
-          <article class="tcard gcard">
-            <div class="t-top">
-              <div class="avatar" aria-hidden="true">KM</div>
-              <div class="meta">
-                <strong>Kevin M.</strong>
-                <span class="sub">Maasai Mara</span>
+      <div class="swiper t-swiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <article class="tcard gcard">
+              <div class="t-top">
+                <div class="avatar" aria-hidden="true">MN</div>
+                <div class="meta">
+                  <strong>Mary N.</strong>
+                  <span class="sub">Diani Retreat</span>
+                </div>
+                <span class="chip"><i class="fa-solid fa-circle-check"></i> Verified</span>
               </div>
-              <span class="chip"><i class="fa-solid fa-circle-check"></i> Verified</span>
-            </div>
 
-            <div class="g-stars" aria-label="5 out of 5 stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-
-            <p class="quote">
-              They delivered a premium safari experience. Great lodge, perfect timing, seamless transfers. We’ll book again.
-            </p>
-
-            <div class="t-foot">
-              <span class="time"><i class="fa-regular fa-clock"></i> 1 month ago</span>
-              <span class="source"><i class="fa-brands fa-google"></i> Google</span>
-            </div>
-          </article>
-        </div>
-
-        <div class="swiper-slide">
-          <article class="tcard gcard">
-            <div class="t-top">
-              <div class="avatar" aria-hidden="true">WK</div>
-              <div class="meta">
-                <strong>Wanjiku K.</strong>
-                <span class="sub">Amboseli</span>
+              <div class="g-stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
-              <span class="chip"><i class="fa-solid fa-circle-check"></i> Verified</span>
-            </div>
 
-            <div class="g-stars" aria-label="5 out of 5 stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
+              <p class="quote">
+                Everything was smooth — from booking to hotel check-in. The itinerary was well planned and the communication was top-tier.
+              </p>
 
-            <p class="quote">
-              Loved the professionalism. Quick responses on WhatsApp and they handled everything without stress. Highly recommended.
-            </p>
+              <div class="t-foot">
+                <span class="time"><i class="fa-regular fa-clock"></i> 2 weeks ago</span>
+                <span class="source"><i class="fa-brands fa-google"></i> Google</span>
+              </div>
+            </article>
+          </div>
 
-            <div class="t-foot">
-              <span class="time"><i class="fa-regular fa-clock"></i> 3 months ago</span>
-              <span class="source"><i class="fa-brands fa-google"></i> Google</span>
-            </div>
-          </article>
+          <div class="swiper-slide">
+            <article class="tcard gcard">
+              <div class="t-top">
+                <div class="avatar" aria-hidden="true">KM</div>
+                <div class="meta">
+                  <strong>Kevin M.</strong>
+                  <span class="sub">Maasai Mara</span>
+                </div>
+                <span class="chip"><i class="fa-solid fa-circle-check"></i> Verified</span>
+              </div>
+
+              <div class="g-stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+
+              <p class="quote">
+                They delivered a premium safari experience. Great lodge, perfect timing, seamless transfers. We’ll book again.
+              </p>
+
+              <div class="t-foot">
+                <span class="time"><i class="fa-regular fa-clock"></i> 1 month ago</span>
+                <span class="source"><i class="fa-brands fa-google"></i> Google</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="tcard gcard">
+              <div class="t-top">
+                <div class="avatar" aria-hidden="true">WK</div>
+                <div class="meta">
+                  <strong>Wanjiku K.</strong>
+                  <span class="sub">Amboseli</span>
+                </div>
+                <span class="chip"><i class="fa-solid fa-circle-check"></i> Verified</span>
+              </div>
+
+              <div class="g-stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+
+              <p class="quote">
+                Loved the professionalism. Quick responses on WhatsApp and they handled everything without stress. Highly recommended.
+              </p>
+
+              <div class="t-foot">
+                <span class="time"><i class="fa-regular fa-clock"></i> 3 months ago</span>
+                <span class="source"><i class="fa-brands fa-google"></i> Google</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="tcard gcard">
+              <div class="t-top">
+                <div class="avatar" aria-hidden="true">BT</div>
+                <div class="meta">
+                  <strong>Brian T.</strong>
+                  <span class="sub">Zanzibar Honeymoon</span>
+                </div>
+                <span class="chip"><i class="fa-solid fa-circle-check"></i> Verified</span>
+              </div>
+
+              <div class="g-stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <p class="quote">
+                We booked our honeymoon through Urban Destinations and it exceeded expectations.
+                The resort selection was perfect, transfers were seamless, and every detail
+                felt thoughtfully planned. It truly felt like a VIP experience.
+              </p>
+
+              <div class="t-foot">
+                <span class="time"><i class="fa-regular fa-clock"></i> 1 month ago</span>
+                <span class="source"><i class="fa-brands fa-google"></i> Google</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="tcard gcard">
+              <div class="t-top">
+                <div class="avatar" aria-hidden="true">PM</div>
+                <div class="meta">
+                  <strong>Patricia M.</strong>
+                  <span class="sub">Family Safari — Samburu</span>
+                </div>
+                <span class="chip"><i class="fa-solid fa-circle-check"></i> Verified</span>
+              </div>
+
+              <div class="g-stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <p class="quote">
+                Traveling with kids can be stressful, but the team made everything effortless.
+                The guide was knowledgeable, the lodges were family-friendly, and the
+                itinerary balanced adventure and comfort perfectly. Highly reliable agency.
+              </p>
+
+              <div class="t-foot">
+                <span class="time"><i class="fa-regular fa-clock"></i> 2 months ago</span>
+                <span class="source"><i class="fa-brands fa-google"></i> Google</span>
+              </div>
+            </article>
+          </div>
+
         </div>
 
-        <div class="swiper-slide">
-  <article class="tcard gcard">
-    <div class="t-top">
-      <div class="avatar" aria-hidden="true">BT</div>
-      <div class="meta">
-        <strong>Brian T.</strong>
-        <span class="sub">Zanzibar Honeymoon</span>
+        <div class="swiper-pagination" aria-label="Slider pagination"></div>
       </div>
-      <span class="chip"><i class="fa-solid fa-circle-check"></i> Verified</span>
     </div>
-
-    <div class="g-stars" aria-label="5 out of 5 stars">
-      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-    </div>
-
-    <p class="quote">
-      We booked our honeymoon through Njeru Tours and it exceeded expectations.
-      The resort selection was perfect, transfers were seamless, and every detail
-      felt thoughtfully planned. It truly felt like a VIP experience.
-    </p>
-
-    <div class="t-foot">
-      <span class="time"><i class="fa-regular fa-clock"></i> 1 month ago</span>
-      <span class="source"><i class="fa-brands fa-google"></i> Google</span>
-    </div>
-  </article>
-</div>
-
-<div class="swiper-slide">
-  <article class="tcard gcard">
-    <div class="t-top">
-      <div class="avatar" aria-hidden="true">PM</div>
-      <div class="meta">
-        <strong>Patricia M.</strong>
-        <span class="sub">Family Safari — Samburu</span>
-      </div>
-      <span class="chip"><i class="fa-solid fa-circle-check"></i> Verified</span>
-    </div>
-
-    <div class="g-stars" aria-label="5 out of 5 stars">
-      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-    </div>
-
-    <p class="quote">
-      Traveling with kids can be stressful, but the team made everything effortless.
-      The guide was knowledgeable, the lodges were family-friendly, and the
-      itinerary balanced adventure and comfort perfectly. Highly reliable agency.
-    </p>
-
-    <div class="t-foot">
-      <span class="time"><i class="fa-regular fa-clock"></i> 2 months ago</span>
-      <span class="source"><i class="fa-brands fa-google"></i> Google</span>
-    </div>
-  </article>
-</div>
-
-      </div>
-
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <div class="divider"></div>
 
@@ -655,7 +604,7 @@
             <div class="formrow">
               <div>
                 <label for="destination">Destination</label>
-                <select id="destination" name="destination" required style="background-color: black;">
+                <select id="destination" name="destination" required style=" background-color: #351f1f;">
                   <option value="" selected disabled>Select</option>
                   <option>Maasai Mara</option>
                   <option>Amboseli</option>
@@ -668,7 +617,7 @@
               </div>
               <div>
                 <label for="group">Group Size</label>
-                <select id="group" name="group" required style="background-color: black;">
+                <select id="group" name="group" required style=" background-color: #351f1f;">
                   <option value="" selected disabled>Select</option>
                   <option>1–2</option>
                   <option>3–5</option>
@@ -719,132 +668,118 @@
         <details>
           <summary>Where are you located? <span class="chev">+</span></summary>
           <p>
-Ground Floor, Umoja House (opp. County Hq),
-Ngei Road, Machakos Town.</p>
+            Ground Floor, Umoja House (opp. County Hq),
+            Ngei Road, Machakos Town.
+          </p>
         </details>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-<footer class="elite-footer">
-  <div class="container">
+  <footer class="elite-footer">
+    <div class="container">
+      <div class="elite-topline" aria-hidden="true"></div>
 
-    <!-- Top glow line -->
-    <div class="elite-topline" aria-hidden="true"></div>
+      <div class="elite-grid">
+        <div class="elite-brand">
+          <div class="elite-brand-head">
+            <span class="elite-mark" aria-hidden="true"></span>
+            <div>
+              <h3>Urban DESTINATIONS</h3>
+              <p>
+                Luxury-curated journeys across Kenya &amp; beyond — crafted with precision,
+                comfort, and concierge-level support from inquiry to arrival.
+              </p>
+            </div>
+          </div>
 
-    <div class="elite-grid">
+          <div class="elite-badges">
+            <span class="badge"><i class="fa-solid fa-shield-heart"></i> Trusted &amp; Secure</span>
+            <span class="badge"><i class="fa-solid fa-star"></i> Top-Rated Experiences</span>
+            <span class="badge"><i class="fa-solid fa-headset"></i> 24/7 Support</span>
+          </div>
 
-      <!-- Brand / About -->
-      <div class="elite-brand">
-        <div class="elite-brand-head">
-          <span class="elite-mark" aria-hidden="true"></span>
-          <div>
-            <h3>Njeru Tours &amp; Travels</h3>
-            <p>
-              Luxury-curated journeys across Kenya &amp; beyond — crafted with precision,
-              comfort, and concierge-level support from inquiry to arrival.
-            </p>
+          <div class="elite-social">
+            <a href="#" aria-label="Facebook" class="soc"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram" class="soc"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="TikTok" class="soc"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" aria-label="YouTube" class="soc"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+
+          <form class="elite-newsletter" action="#" method="POST">
+            <input type="email" name="email" required placeholder="Get travel deals & insider tips" />
+            <button type="submit" class="elite-btn">
+              <i class="fa-solid fa-paper-plane"></i> Subscribe
+            </button>
+          </form>
+
+          <small class="elite-note">
+            By subscribing, you agree to receive occasional updates. No spam — unsubscribe anytime.
+          </small>
+        </div>
+
+        <div class="elite-col">
+          <h4>Quick Links</h4>
+          <a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a>
+          <a href="tours.html"><i class="fa-solid fa-chevron-right"></i> Tours</a>
+          <a href="destinations.html"><i class="fa-solid fa-chevron-right"></i> Destinations</a>
+          <a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Travel Guides</a>
+          <a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+        </div>
+
+        <div class="elite-col">
+          <h4>Contact</h4>
+          <a href="tel:+254722933305"><i class="fa-solid fa-phone"></i> +254 722 933 305</a>
+          <a href="https://wa.me/254722933305" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Chat
+          </a>
+          <a href="mailto:travel@urbandestinations.co.ke"><i class="fa-solid fa-envelope"></i> travel@urbandestinations.co.ke</a>
+
+          <div class="elite-hours">
+            <span class="label"><i class="fa-regular fa-clock"></i> Office Hours</span>
+            <span>Mon–Sat: 8:00 AM – 6:00 PM</span>
+            <span>Sunday: By appointment</span>
           </div>
         </div>
 
-        <!-- Trust badges -->
-        <div class="elite-badges">
-          <span class="badge"><i class="fa-solid fa-shield-heart"></i> Trusted &amp; Secure</span>
-          <span class="badge"><i class="fa-solid fa-star"></i> Top-Rated Experiences</span>
-          <span class="badge"><i class="fa-solid fa-headset"></i> 24/7 Support</span>
-        </div>
+        <div class="elite-col">
+          <h4>Our Office</h4>
+          <div class="elite-location">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>
+              Ground Floor, Umoja House (opp. County Hq),<br />
+              Ngei Road, Machakos Town.
+            </span>
+          </div>
 
-        <!-- Social -->
-        <div class="elite-social">
-          <a href="#" aria-label="Facebook" class="soc"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" aria-label="Instagram" class="soc"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="TikTok" class="soc"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="#" aria-label="YouTube" class="soc"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-
-        <!-- Newsletter -->
-        <form class="elite-newsletter" action="#" method="POST">
-          <input type="email" name="email" required placeholder="Get travel deals & insider tips" />
-          <button type="submit" class="elite-btn">
-            <i class="fa-solid fa-paper-plane"></i> Subscribe
-          </button>
-        </form>
-
-        <small class="elite-note">
-          By subscribing, you agree to receive occasional updates. No spam — unsubscribe anytime.
-        </small>
-      </div>
-
-      <!-- Quick Links -->
-      <div class="elite-col">
-        <h4>Quick Links</h4>
-        <a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a>
-        <a href="tours.html"><i class="fa-solid fa-chevron-right"></i> Tours</a>
-        <a href="destinations.html"><i class="fa-solid fa-chevron-right"></i> Destinations</a>
-        <a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Travel Guides</a>
-        <a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a>
-      </div>
-
-      <!-- Contact -->
-      <div class="elite-col">
-        <h4>Contact</h4>
-        <a href="tel:+254722933305"><i class="fa-solid fa-phone"></i> +254 722 933305</a>
-        <a href="https://wa.me/254722933305" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp Chat
-        </a>
-        <a href="mailto:info@njerutours.com"><i class="fa-solid fa-envelope"></i> info@njerutours.com</a>
-
-        <div class="elite-hours">
-          <span class="label"><i class="fa-regular fa-clock"></i> Office Hours</span>
-          <span>Mon–Sat: 8:00 AM – 6:00 PM</span>
-          <span>Sunday: By appointment</span>
-        </div>
-      </div>
-
-      <!-- Location -->
-      <div class="elite-col">
-        <h4>Our Office</h4>
-        <div class="elite-location">
-          <i class="fa-solid fa-location-dot"></i>
-          <span>
-            Ground Floor, Umoja House (opp. County Hq),<br />
-            Ngei Road, Machakos Town.
-          </span>
-        </div>
-
-        <a class="elite-map" href="https://share.google/QzIdgRkZaR3sJlo91" target="_blank" rel="noopener">
-          <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
-        </a>
-
-        <div class="elite-cta">
-          <a class="elite-btn outline" href="contact.html">
-            <i class="fa-solid fa-calendar-check"></i> Plan My Trip
+          <a class="elite-map" href="https://share.google/QzIdgRkZaR3sJlo91" target="_blank" rel="noopener">
+            <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
           </a>
-          <a class="elite-btn" href="tours.html">
-            <i class="fa-solid fa-compass"></i> Explore Tours
-          </a>
+
+          <div class="elite-cta">
+            <a class="elite-btn outline" href="contact.html">
+              <i class="fa-solid fa-calendar-check"></i> Plan My Trip
+            </a>
+            <a class="elite-btn" href="tours.html">
+              <i class="fa-solid fa-compass"></i> Explore Tours
+            </a>
+          </div>
         </div>
       </div>
 
+      <div class="elite-bar">
+        <span>© <span id="year"></span> Urban DESTINATIONS. All rights reserved.</span>
+        <span class="elite-dev">
+          Designed &amp; Developed By
+          <a href="https://sarahadevelopers.co.ke" target="_blank" rel="noopener">Saraha Developers</a>
+        </span>
+      </div>
     </div>
-
-    <!-- Bottom bar -->
-    <div class="elite-bar">
-      <span>© <span id="year"></span> Njeru Tours &amp; Travels. All rights reserved.</span>
-
-      <span class="elite-dev">
-        Designed &amp; Developed By
-        <a href="https://sarahadevelopers.co.ke" target="_blank" rel="noopener">Saraha Developers</a>
-      </span>
-    </div>
-
-  </div>
-</footer>
+  </footer>
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  
   <script src="index.js"></script>
 </body>
 </html>

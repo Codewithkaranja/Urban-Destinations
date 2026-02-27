@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tours | Njeru Tours & Travels</title>
+  <title>Tours | Urban DESTINATIONS</title>
 
   <!-- Jost font with preload -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -771,10 +771,10 @@
   <!-- NAV -->
   <div class="nav">
     <div class="bar">
-      <a class="brand" href="index.html" aria-label="Njeru Tours & Travels">
+      <a class="brand" href="index.html" aria-label="Urban DESTINATIONS">
         <span class="mark" aria-hidden="true"></span>
         <span>
-          Njeru Tours &amp; Travels
+          Urban DESTINATIONS
           <small>Premium journeys • East Africa</small>
         </span>
       </a>
@@ -946,7 +946,7 @@
   <footer>
     <div class="container">
       <div class="footbar">
-        <span>© <span id="year"></span> Njeru Tours &amp; Travels</span>
+        <span>© <span id="year"></span> Urban DESTINATIONS</span>
         <span style="color:rgba(201,162,39,.85); font-weight:1000;">WhatsApp: +254 722 933305</span>
       </div>
     </div>
@@ -1235,7 +1235,7 @@
 
                     <div class="actions">
                       <button class="btn btn-primary" type="button" data-open="${t.id}">View Details</button>
-                      <a class="btn btn-gold" href="https://wa.me/254722933305?text=${encodeURIComponent(`Hi Njeru Tours & Travels, I’d like a quote for: ${t.name}.`)}" target="_blank" rel="noopener">Request Quote</a>
+                      <a class="btn btn-gold" href="https://wa.me/254722933305?text=${encodeURIComponent(`Hi Urban DESTINATIONS, I’d like a quote for: ${t.name}.`)}" target="_blank" rel="noopener">Request Quote</a>
                     </div>
                   </div>
                 </article>
@@ -1274,7 +1274,7 @@
         mName.textContent = tour.name;
         mDesc.textContent = tour.desc;
         mChips.innerHTML = tour.highlights.map(h => `<span class="chip">${h}</span>`).join("");
-        mQuote.href = `https://wa.me/254722933305?text=${encodeURIComponent(`Hi Njeru Tours & Travels, I’d like a quote for: ${tour.name}.`)}`;
+        mQuote.href = `https://wa.me/254722933305?text=${encodeURIComponent(`Hi Urban DESTINATIONS, I’d like a quote for: ${tour.name}.`)}`;
 
         const saved = state.saved.has(id);
         mSave.textContent = saved ? "Saved ✓ (Remove)" : "Save to Wishlist";
